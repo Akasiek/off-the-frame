@@ -7,13 +7,12 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product_links', function (Blueprint $table) {
             $table->id();
 
-            $table->string('brand');
-            $table->string('model');
-            $table->foreignId('product_link_id');
-            $table->foreignId('product_category_id');
+            $table->string('url');
+            $table->float('price');
+            $table->string('store');
 
             $table->timestamps();
         });
@@ -21,6 +20,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('product_links');
     }
 };
