@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Storage;
 
 /** @mixin \App\Models\OutfitOfTheDay */
 class OutfitOfTheDayResource extends JsonResource
@@ -17,9 +16,6 @@ class OutfitOfTheDayResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'image_source_url' => $this->image_source_url,
-            'image' =>Storage::url($this->image),
-
-            'products' => ProductResource::collection($this->whenLoaded('products')),
         ];
     }
 }

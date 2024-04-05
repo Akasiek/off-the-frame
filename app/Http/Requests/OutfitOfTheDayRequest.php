@@ -11,11 +11,6 @@ class OutfitOfTheDayRequest extends FormRequest
         return [
             'name' => ['required'],
             'image_source_url' => ['required'],
-
-            // 'products' is an array of ids, e.g. ['54', '23', '12']
-            'products' => ['required', 'array'],
-            'products.*' => ['integer', 'exists:products,id']
-
         ];
     }
 

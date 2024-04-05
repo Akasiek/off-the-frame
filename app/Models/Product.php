@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -15,25 +14,21 @@ class Product extends Model
     protected $fillable = [
         'brand',
         'model',
+        'product_link_id',
         'product_category_id',
     ];
 
-    public function category(): BelongsTo
+    public function productLink(): BelongsTo
     {
-        return $this->belongsTo(ProductCategory::class, 'product_category_id');
+        return $this->belongsTo(ProductLink::class);
     }
 
-    public function links(): HasMany
+    public function productCategory(): BelongsTo
     {
-        return $this->hasMany(ProductLink::class, 'product_id');
+        return $this->belongsTo(ProductCategory::class);
     }
 
-    public function images(): HasMany
-    {
-        return $this->hasMany(ProductImage::class, 'product_id');
-    }
-
-    public function outfitsOfTheDay(): BelongsToMany
+    public function outfitOfTheDays(): BelongsToMany
     {
         return $this->belongsToMany(OutfitOfTheDay::class);
     }

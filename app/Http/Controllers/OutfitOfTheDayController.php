@@ -4,54 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OutfitOfTheDayRequest;
 use App\Http\Resources\OutfitOfTheDayResource;
-use App\Http\Services\OutfitOfTheDayService;
 use App\Models\OutfitOfTheDay;
-use App\Models\Product;
-use Inertia\Inertia;
-use Inertia\Response;
 
 class OutfitOfTheDayController extends Controller
 {
     public function index()
     {
-        return OutfitOfTheDayResource::collection(OutfitOfTheDay::with(['products'])->get());
-    }
-
-    public function show(OutfitOfTheDay $outfitOfTheDay)
-    {
-        return new OutfitOfTheDayResource($outfitOfTheDay->load(['products']));
-    }
-
-    public function dashboard(): Response
-    {
-        $OftD = OutfitOfTheDayResource::collection(OutfitOfTheDay::with(['products'])->get());
-        $products = Product::all();
-
-        return Inertia::render('OutfitOfTheDay/Dashboard', [
-            'outfitsOfTheDay' => $OftD,
-            'products' => $products,
-        ]);
+        return OutfitOfTheDayResource::collection(OutfitOfTheDay::all());
     }
 
     public function store(OutfitOfTheDayRequest $request)
     {
-        OutfitOfTheDayService::create($request);
-
-        return $this->dashboard();
+        return new OutfitOfTheDayResource(OutfitOfTheDay::create($request->validated()));
     }
 
+    public function show(OutfitOfTheDay $outfitOfTheDay)
+    {
+        return new OutfitOfTheDayResource($outfitOfTheDay);
+    }
 
     public function update(OutfitOfTheDayRequest $request, OutfitOfTheDay $outfitOfTheDay)
     {
-        OutfitOfTheDayService::update($request, $outfitOfTheDay);
+        $outfitOfTheDay->update($request->validated());
 
-        return $this->dashboard();
+        return new OutfitOfTheDayResource($outfitOfTheDay);
     }
 
     public function destroy(OutfitOfTheDay $outfitOfTheDay)
     {
-        OutfitOfTheDayService::delete($outfitOfTheDay);
+        $outfitOfTheDay->delete();
 
-        return $this->dashboard();
+        return response()->json();
     }
 }
