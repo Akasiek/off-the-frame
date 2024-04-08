@@ -22,7 +22,13 @@
     "dependencies": {
         "@fontsource-variable/lora": "^5.0.17",
         "@fontsource-variable/montserrat": "^5.0.18",
-        "prettier": "^3.2.5"
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.0",
+        "lucide-vue-next": "^0.365.0",
+        "prettier": "^3.2.5",
+        "radix-vue": "^1.6.2",
+        "tailwind-merge": "^2.2.2",
+        "tailwindcss-animate": "^1.0.7"
     },
     "prettier": {
         "tabWidth": 2,
