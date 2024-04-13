@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->string('url');
             $table->float('price');
             $table->string('store');
+            $table->foreignId('product_id');
 
             $table->timestamps();
         });
