@@ -12,7 +12,6 @@ return new class extends Migration {
 
             $table->string('brand');
             $table->string('model');
-            $table->foreignId('product_link_id');
             $table->foreignId('product_category_id');
 
             $table->timestamps();
