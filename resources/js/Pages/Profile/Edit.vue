@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <Head title="Profile" />
+  <Head title="Profil" />
 
   <DashboardLayout header-title="Ustawienia profilu" header-subtext="Tutaj możesz zarządzać swoim kontem.">
     <div class="py-12">

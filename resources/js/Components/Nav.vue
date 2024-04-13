@@ -37,7 +37,7 @@ const links = [
       </Link>
     </div>
     <div class="bg-white-100 hover:bg-zinc-200 transition-colors absolute right-0 w-4 h-4 rounded-full">
-      <Link :href="route('dashboard')" class="block w-4 h-4" />
+      <Link :href="route('products.dashboard')" class="block w-4 h-4" />
     </div>
   </nav>
 </template>
