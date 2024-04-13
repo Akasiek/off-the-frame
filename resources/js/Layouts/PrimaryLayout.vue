@@ -3,14 +3,17 @@ import Nav from '@/Components/Nav.vue';
 import Footer from '@/Components/Footer.vue';
 
 import '@/Style/base.css';
+import WrapperLayout from '@/Layouts/WrapperLayout.vue';
 </script>
 
 <template>
-  <Nav />
+  <WrapperLayout>
+    <Nav />
 
-  <main class="min-h-svh">
-    <slot />
-  </main>
+    <main class="min-h-svh">
+      <slot />
+    </main>
 
-  <Footer />
+    <Footer />
+  </WrapperLayout>
 </template>
