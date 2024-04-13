@@ -16,8 +16,7 @@ const sidebarNavItems: Item[] = [
   },
   {
     title: 'Produkty',
-    // href: route('dashboard.products'),
-    href: route('home'),
+    href: route('products.dashboard'),
   },
   {
     title: 'Kategorie produktu',
