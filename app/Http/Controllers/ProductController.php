@@ -53,8 +53,8 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $product->delete();
+        ProductService::delete($product);
 
-        return response()->json();
+        return $this->dashboard();
     }
 }

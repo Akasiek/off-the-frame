@@ -13,6 +13,7 @@ Route::prefix('products')->group(function () {
         Route::get('/dashboard', [ProductController::class, 'dashboard'])->name('products.dashboard');
         Route::post('/', [ProductController::class, 'store'])->name('products.create');
         Route::patch('/{product}', [ProductController::class, 'update'])->name('products.update');
+        Route::delete('/{product}', [ProductController::class, 'destroy'])->name('products.delete');
     });
 });
 
