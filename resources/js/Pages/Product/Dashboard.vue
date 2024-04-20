@@ -5,7 +5,7 @@ import Table from '@/Components/Product/Dashboard/Table.vue';
 import { Product, ProductCategory } from '@/Interfaces';
 
 defineProps<{
-  products: Product[];
+  products: { data: Product[] };
   categories: ProductCategory[];
 }>();
 </script>

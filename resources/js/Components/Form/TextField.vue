@@ -6,8 +6,8 @@ import { Input } from '@/Components/ui/input';
 defineProps<{
   modelValue: string;
   fieldName: string;
-  fieldError: string | undefined;
-  label: string;
+  fieldError?: string | undefined;
+  label?: string;
   placeholder?: string;
   isRequired?: boolean;
 }>();
@@ -16,7 +16,7 @@ defineProps<{
 <template>
   <FormField :name="fieldName" v-slot="{ componentField }">
     <FormItem>
-      <FormLabel :class="{ 'is-required': isRequired }" class="dark:text-white">
+      <FormLabel :class="{ 'is-required': isRequired }" class="dark:text-white" v-if="label">
         {{ label }}
       </FormLabel>
       <FormControl>
