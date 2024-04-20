@@ -9,4 +9,5 @@ export interface Product {
 
   category: ProductCategory;
   links: ProductLink[];
+  images: { url: string }[];
 }

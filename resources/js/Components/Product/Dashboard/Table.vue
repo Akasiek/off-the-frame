@@ -8,9 +8,11 @@ import { ProductCreateForm } from '@/Components/Product/Form';
 
 const page = usePage();
 const { products } = defineProps<{
-  products: Product[];
+  products: { data: Product[] };
   categories: ProductCategory[];
 }>();
+
+console.log(products.data[0].images);
 
 const columns: ColumnDef<Product>[] = [
   {
@@ -22,6 +24,47 @@ const columns: ColumnDef<Product>[] = [
     accessorKey: 'model',
     header: 'Model',
     cell: (props) => props.row.original.model,
+  },
+  {
+    accessorKey: 'category.name',
+    header: 'Kategoria',
+    cell: (props) => props.row.original.category.name,
+  },
+
+  {
+    accessorKey: 'links',
+    header: 'Linki',
+    cell: (props) =>
+      h(
+        'div',
+        { class: 'space-x-2' },
+        props.row.original.links.map((link) =>
+          h(
+            'a',
+            {
+              href: link.url,
+              target: '_blank',
+              class: 'text-blue-500 underline',
+            },
+            link.store
+          )
+        )
+      ),
+  },
+  {
+    accessorKey: 'images',
+    header: 'Zdjęcia',
+    cell: (props) =>
+      h(
+        'div',
+        { class: 'flex flex-wrap gap-4' },
+        props.row.original.images.map((image) =>
+          h('img', {
+            src: image.url,
+            class: 'w-16 h-16 object-cover',
+          })
+        )
+      ),
   },
 
   // {
@@ -40,7 +83,7 @@ const columns: ColumnDef<Product>[] = [
 </script>
 
 <template>
-  <DataTable :data="products" :columns="columns" class="z-10">
+  <DataTable :data="products.data" :columns="columns" class="z-10">
     <template #header>
       <div class="flex flex-wrap justify-between mb-4">
         <!--            <div class="flex items-center py-4">-->

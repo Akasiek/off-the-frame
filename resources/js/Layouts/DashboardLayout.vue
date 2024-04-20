@@ -8,6 +8,14 @@ defineProps<{
   headerTitle: string;
   headerSubtext?: string;
 }>();
+
+import { changeTheme, getTheme } from '@/lib/utils';
+import { onMounted } from 'vue';
+
+// Get system or preferred theme
+onMounted(() => {
+  changeTheme(getTheme());
+});
 </script>
 
 <template>
