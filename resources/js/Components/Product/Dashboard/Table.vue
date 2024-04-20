@@ -4,10 +4,11 @@ import { usePage } from '@inertiajs/vue3';
 import { Product, ProductCategory } from '@/Interfaces';
 import { ColumnDef } from '@tanstack/vue-table';
 import { DataTable } from '@/Components/ui/table';
-import { ProductCreateForm } from '@/Components/Product/Form';
+import { ProductCreateForm, ProductUpdateForm } from '@/Components/Product/Form';
+import { ProductDeleteDialog } from '@/Components/Product/Delete';
 
 const page = usePage();
-const { products } = defineProps<{
+const { products, categories } = defineProps<{
   products: { data: Product[] };
   categories: ProductCategory[];
 }>();
@@ -67,18 +68,18 @@ const columns: ColumnDef<Product>[] = [
       ),
   },
 
-  // {
-  //   id: 'actions',
-  //   header: 'Akcje',
-  //   cell: (props) =>
-  //     h('div', { class: 'space-x-2' }, [
-  //       h(LectureUpdateForm, {
-  //         lecture: props.row.original,
-  //         subjects: subjects,
-  //       }),
-  //       h(LectureDeleteDialog, { lectureId: props.row.original.id }),
-  //     ]),
-  // },
+  {
+    id: 'actions',
+    header: 'Akcje',
+    cell: (props) =>
+      h('div', { class: 'space-x-2' }, [
+        h(ProductUpdateForm, {
+          product: props.row.original,
+          categories: categories,
+        }),
+        h(ProductDeleteDialog, { productId: props.row.original.id }),
+      ]),
+  },
 ];
 </script>
 
