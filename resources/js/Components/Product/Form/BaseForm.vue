@@ -5,6 +5,10 @@ import { useForm } from '@inertiajs/vue3';
 import { TextField } from '@/Components/Form';
 import { Select } from '@/Components/Form';
 import { Button } from '@/Components/ui/button';
+import { Input } from '@/Components/ui/input';
+import { Label } from '@/Components/ui/label';
+import { MinusIcon } from 'lucide-vue-next';
+import LinkInputs from '@/Components/Product/Form/LinkInputs.vue';
 
 const { product } = defineProps<{
   product?: Product;
@@ -16,6 +20,7 @@ const form = useForm({
   model: product?.model || '',
   product_category_id: product?.product_category_id?.toString() || '',
   links: product?.links || [{ url: '', price: '', store: '' }],
+  images: product?.images || [{ url: '' }],
 });
 
 const emit = defineEmits(['success']);
@@ -33,7 +38,7 @@ const submit = () => {
     return;
   }
 
-  form.post(route('products.store'), {
+  form.post(route('products.create'), {
     onSuccess: () => {
       handleSuccess();
     },
@@ -60,6 +65,10 @@ const handleError = () => {
     variant: 'destructive',
   });
 };
+
+const addFileField = () => {
+  form.images.push({ url: '' });
+};
 </script>
 
 <template>
@@ -82,6 +91,20 @@ const handleError = () => {
       is-required
       placeholder="Wybierz kategorię..."
     />
+
+    <LinkInputs :links="form.links" />
+
+    <div class="space-y-4">
+      <Label> Zdjęcia </Label>
+      <div v-for="(file, index) in form.images" :key="index" class="grid grid-cols-[1fr_auto] gap-3">
+        <Input type="file" @input="form.images[index].url = $event.target.files[0]" />
+        <Button type="button" @click="form.images.splice(index, 1)" variant="outline">
+          <MinusIcon class="w-4 h-4" />
+        </Button>
+      </div>
+
+      <Button type="button" @click="addFileField" variant="outline">Dodaj zdjęcie</Button>
+    </div>
 
     <Button type="submit">Dodaj</Button>
   </form>

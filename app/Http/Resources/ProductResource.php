@@ -11,13 +11,16 @@ class ProductResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
             'id' => $this->id,
             'brand' => $this->brand,
             'model' => $this->model,
 
-            'productLink' => new ProductLinkResource($this->whenLoaded('productLink')),
+            'category' => new ProductCategoryResource($this->whenLoaded('category')),
+            'links' => ProductLinkResource::collection($this->whenLoaded('links')),
+            'images' => ProductImageResource::collection($this->whenLoaded('images')),
+
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }
