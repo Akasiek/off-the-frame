@@ -16,10 +16,19 @@ return new class extends Migration {
 
             $table->timestamps();
         });
+
+        // Create table for products images
+        Schema::create('product_images', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id');
+            $table->string('url');
+            $table->timestamps();
+        });
     }
 
     public function down(): void
     {
         Schema::dropIfExists('products');
+        Schema::dropIfExists('product_images');
     }
 };
