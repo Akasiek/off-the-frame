@@ -18,14 +18,19 @@ class Product extends Model
         'product_category_id',
     ];
 
-    public function productCategory(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(ProductCategory::class);
+        return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
 
-    public function productLink(): HasMany
+    public function links(): HasMany
     {
-        return $this->hasMany(ProductLink::class);
+        return $this->hasMany(ProductLink::class, 'product_id');
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
     }
 
     public function outfitOfTheDays(): BelongsToMany
