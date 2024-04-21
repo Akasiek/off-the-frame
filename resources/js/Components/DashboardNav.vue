@@ -20,8 +20,7 @@ const sidebarNavItems: Item[] = [
   },
   {
     title: 'Kategorie produktu',
-    // href: route('dashboard.product-categories'),
-    href: route('home'),
+    href: route('product-categories.dashboard'),
   },
   {
     title: 'Style Guides',

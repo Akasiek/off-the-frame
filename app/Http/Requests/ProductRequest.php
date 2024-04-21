@@ -13,12 +13,12 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'brand' => ['required'],
-            'model' => ['required'],
+            'brand' => ['required', 'string', 'max:255'],
+            'model' => ['required', 'string', 'max:255'],
             'product_category_id' => ['required', 'exists:product_categories,id'],
 
             'links' => ['array'],
-            'links.*.store' => ['required', 'string'],
+            'links.*.store' => ['required', 'string', 'max:255'],
             'links.*.url' => ['required', 'url'],
             'links.*.price' => ['required', 'numeric'],
 
