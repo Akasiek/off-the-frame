@@ -18,8 +18,7 @@ class UserSeeder extends Seeder
             throw new Exception('Please set ADMIN_EMAIL and ADMIN_PASSWORD in your .env file');
         }
 
-        User::updateOrCreate([
-            'name' => 'Admin',
+        User::updateOrCreate(['name' => 'Admin'], [
             'email' => env('ADMIN_EMAIL'),
             'password' => bcrypt(env('ADMIN_PASSWORD')),
         ]);
