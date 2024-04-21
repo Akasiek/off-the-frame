@@ -40,6 +40,7 @@ class ProductService
     {
         $product->delete();
         $product->links()->delete();
-        $product->images()->delete();
+
+        ProductImage::deleteImages($product);
     }
 }
