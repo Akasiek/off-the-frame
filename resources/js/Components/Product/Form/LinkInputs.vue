@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="py-6 space-y-5">
+  <div class="py-2 space-y-5">
     <Label>Linki</Label>
 
     <div v-for="(link, index) in links" :key="index">
