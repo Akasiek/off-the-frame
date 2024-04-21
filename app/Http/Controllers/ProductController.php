@@ -43,9 +43,9 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, Product $product)
     {
-        $product->update($request->validated());
+        ProductService::update($request, $product);
 
-        return new ProductResource($product);
+        return $this->dashboard();
     }
 
     public function destroy(Product $product)

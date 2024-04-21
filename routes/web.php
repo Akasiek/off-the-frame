@@ -12,7 +12,9 @@ Route::prefix('products')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [ProductController::class, 'dashboard'])->name('products.dashboard');
         Route::post('/', [ProductController::class, 'store'])->name('products.create');
-        Route::patch('/{product}', [ProductController::class, 'update'])->name('products.update');
+        // Multipart Inertia limitations
+        Route::post('/{product}', [ProductController::class, 'update'])->name('products.update');
+        // Route::patch('/{product}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/{product}', [ProductController::class, 'destroy'])->name('products.delete');
     });
 });

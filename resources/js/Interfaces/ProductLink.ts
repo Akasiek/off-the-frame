@@ -1,7 +1,7 @@
 export interface ProductLink {
   id: number;
   url: string;
-  price: number;
+  price: number | string;
   store: string;
   product_id: number;
 }
