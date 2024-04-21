@@ -17,7 +17,7 @@ defineProps<{
     </template>
 
     <template v-slot="{ handleClose }">
-      <BaseForm :product="product" :categories="categories" @success="handleClose" />
+      <BaseForm :product="product" :categories="categories" @success="handleClose" :is-edit="true" />
     </template>
   </ModalContainer>
 </template>

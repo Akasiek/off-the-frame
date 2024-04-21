@@ -9,25 +9,32 @@ import { Input } from '@/Components/ui/input';
 import { Label } from '@/Components/ui/label';
 import { MinusIcon } from 'lucide-vue-next';
 import LinkInputs from '@/Components/Product/Form/LinkInputs.vue';
+import InputError from '@/Components/InputError.vue';
 
-const { product } = defineProps<{
+const { product, isEdit } = defineProps<{
   product?: Product;
   categories: ProductCategory[];
+  isEdit?: boolean;
 }>();
 
 const form = useForm({
   brand: product?.brand || '',
   model: product?.model || '',
   product_category_id: product?.product_category_id?.toString() || '',
-  links: product?.links || [{ url: '', price: '', store: '' }],
-  images: product?.images || [{ url: '' }],
+  links: product?.links.map(({ url, price, store }) => {
+    price = price.toString();
+    return { url, price, store };
+  }) || [{ url: '', price: '', store: '' }],
+  images: isEdit ? [] : [{ url: '' }],
 });
 
 const emit = defineEmits(['success']);
 
 const submit = () => {
   if (product) {
-    form.patch(route('products.update', product.id), {
+    form.post(route('products.update', product.id), {
+      // Inertia multipart limitation
+      _method: 'put',
       onSuccess: () => {
         handleSuccess();
       },
@@ -92,21 +99,29 @@ const addFileField = () => {
       placeholder="Wybierz kategorię..."
     />
 
-    <LinkInputs :links="form.links" />
+    <LinkInputs :links="form.links" :errors="form.errors" />
 
     <div class="space-y-4">
       <Label> Zdjęcia </Label>
+
+      <p v-if="isEdit" class="text-xs text-red-400 font-medium">Przy edycji, gdy dodasz jakieś zdjęcie, stare zostaną usunięte.</p>
+
       <div v-for="(file, index) in form.images" :key="index" class="grid grid-cols-[1fr_auto] gap-3">
-        <Input type="file" @input="form.images[index].url = $event.target.files[0]" />
+        <Input type="file" @input="file.url = $event.target.files[0]" :name="`images[${index}][url]`" />
+
         <Button type="button" @click="form.images.splice(index, 1)" variant="outline">
           <MinusIcon class="w-4 h-4" />
         </Button>
       </div>
 
+      <div v-for="(file, index) in form.images" :key="index">
+        <InputError :message="(form.errors as any)?.[`images.${index}.url`]" />
+      </div>
+
       <Button type="button" @click="addFileField" variant="outline">Dodaj zdjęcie</Button>
     </div>
 
-    <Button type="submit">Dodaj</Button>
+    <Button type="submit">{{ isEdit ? 'Zaktualizuj' : 'Dodaj' }}</Button>
   </form>
 </template>
 

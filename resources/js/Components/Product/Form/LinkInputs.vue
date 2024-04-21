@@ -4,9 +4,11 @@ import { TextField } from '@/Components/Form';
 import { Button } from '@/Components/ui/button';
 import { Label } from '@/Components/ui/label';
 import { Separator } from '@/Components/ui/separator';
+import InputError from '@/Components/InputError.vue';
 
 defineProps<{
   links: { url: string; price: string; store: string }[];
+  errors: any;
 }>();
 </script>
 
@@ -24,6 +26,11 @@ defineProps<{
         <Button type="button" @click="links.splice(index, 1)" variant="outline" class="flex items-center justify-center">
           <MinusIcon class="w-4 h-4" />
         </Button>
+      </div>
+      <div class="space-y-2 mt-4">
+        <InputError :message="errors[`links.${index}.url`]" />
+        <InputError :message="errors[`links.${index}.price`]" />
+        <InputError :message="errors[`links.${index}.store`]" />
       </div>
 
       <Separator v-if="index !== links.length - 1" class="my-4" />
