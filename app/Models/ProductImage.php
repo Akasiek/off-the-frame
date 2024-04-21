@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductImage extends Model

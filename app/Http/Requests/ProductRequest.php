@@ -23,7 +23,7 @@ class ProductRequest extends FormRequest
             'links.*.price' => ['required', 'numeric'],
 
             'images' => ['array'],
-            'images.*.url' => ['required', 'file', 'mimes:jpg,jpeg,png'],
+            'images.*.url' => ['required', 'file', 'mimes:jpg,jpeg,png,gif,webp', 'max:2048'],
         ];
     }
 
