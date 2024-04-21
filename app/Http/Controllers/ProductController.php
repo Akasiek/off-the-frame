@@ -9,18 +9,17 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Inertia\Inertia;
 use Inertia\Response;
-use function MongoDB\BSON\toJSON;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        return ProductResource::collection(Product::all());
+        return ProductResource::collection(Product::with(['category', 'links', 'images'])->get());
     }
 
     public function show(Product $product)
     {
-        return new ProductResource($product);
+        return new ProductResource($product->load(['category', 'links', 'images']));
     }
 
     public function dashboard(): Response
@@ -36,8 +35,6 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        // new ProductResource(Product::create($request->validated()));
-
         ProductService::create($request);
 
         return $this->dashboard();
