@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { h } from 'vue';
-import { usePage } from '@inertiajs/vue3';
 import { Product, ProductCategory } from '@/Interfaces';
 import { ColumnDef } from '@tanstack/vue-table';
 import { DataTable } from '@/Components/ui/table';
 import { ProductCreateForm, ProductUpdateForm } from '@/Components/Product/Form';
 import { ProductDeleteDialog } from '@/Components/Product/Delete';
 
-const page = usePage();
 const { products, categories } = defineProps<{
   products: { data: Product[] };
   categories: ProductCategory[];
