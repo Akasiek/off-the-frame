@@ -29,9 +29,15 @@ class ProductService
 
         // Update product's links
         $product->links()->delete();
-        $request->links()->each(fn($link) => $product->links()->create($link));
+        foreach ($request->links as $link) {
+            $product->links()->create($link);
+        }
 
         // Update product's images
+        if (!count($request->file('images', []))) {
+            return;
+        }
+
         $product->images()->delete();
         ProductImage::addImages($product, $request);
     }
