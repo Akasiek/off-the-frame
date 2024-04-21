@@ -87,12 +87,6 @@ const columns: ColumnDef<Product>[] = [
   <DataTable :data="products.data" :columns="columns" class="z-10">
     <template #header>
       <div class="flex flex-wrap justify-between mb-4">
-        <!--            <div class="flex items-center py-4">-->
-        <!--              <div class="w-64">-->
-        <!--                <SubjectSelectFilter :subjects="subjects" :table="table" />-->
-        <!--              </div>-->
-        <!--            </div>-->
-
         <ProductCreateForm :categories="categories" />
       </div>
     </template>
