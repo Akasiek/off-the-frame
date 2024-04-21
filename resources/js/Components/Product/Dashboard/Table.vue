@@ -13,8 +13,6 @@ const { products, categories } = defineProps<{
   categories: ProductCategory[];
 }>();
 
-console.log(products.data[0].images);
-
 const columns: ColumnDef<Product>[] = [
   {
     accessorKey: 'brand',
@@ -36,36 +34,40 @@ const columns: ColumnDef<Product>[] = [
     accessorKey: 'links',
     header: 'Linki',
     cell: (props) =>
-      h(
-        'div',
-        { class: 'space-x-2' },
-        props.row.original.links.map((link) =>
-          h(
-            'a',
-            {
-              href: link.url,
-              target: '_blank',
-              class: 'text-blue-500 underline',
-            },
-            link.store
+      props.row.original.links
+        ? h(
+            'div',
+            { class: 'space-x-2' },
+            props.row.original.links.map((link) =>
+              h(
+                'a',
+                {
+                  href: link.url,
+                  target: '_blank',
+                  class: 'text-blue-500 underline',
+                },
+                link.store
+              )
+            )
           )
-        )
-      ),
+        : h('div', 'Brak linków'),
   },
   {
     accessorKey: 'images',
     header: 'Zdjęcia',
     cell: (props) =>
-      h(
-        'div',
-        { class: 'flex flex-wrap gap-4' },
-        props.row.original.images.map((image) =>
-          h('img', {
-            src: image.url,
-            class: 'w-16 h-16 object-cover',
-          })
-        )
-      ),
+      props.row.original?.images
+        ? h(
+            'div',
+            { class: 'flex flex-wrap gap-4' },
+            props.row.original.images.map((image) =>
+              h('img', {
+                src: image.url,
+                class: 'w-16 h-16 object-cover',
+              })
+            )
+          )
+        : h('div', 'Brak zdjęć'),
   },
 
   {

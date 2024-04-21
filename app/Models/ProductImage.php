@@ -6,7 +6,6 @@ use App\Http\Requests\ProductRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProductImage extends Model
 {
@@ -28,14 +27,6 @@ class ProductImage extends Model
             $product->images()->create([
                 'url' => $path,
             ]);
-        }
-    }
-
-    public static function deleteImages(Product $product): void
-    {
-        foreach ($product->images as $image) {
-            Storage::disk('public')->delete($image->url);
-            $image->delete();
         }
     }
 }
