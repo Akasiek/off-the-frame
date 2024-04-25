@@ -33,7 +33,7 @@ class Product extends Model
         return $this->hasMany(ProductImage::class, 'product_id');
     }
 
-    public function outfitOfTheDays(): BelongsToMany
+    public function outfitsOfTheDay(): BelongsToMany
     {
         return $this->belongsToMany(OutfitOfTheDay::class);
     }
