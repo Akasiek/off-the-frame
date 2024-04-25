@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Http\Requests\OutfitOfTheDayRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
 
 class OutfitOfTheDay extends Model
 {
     use HasFactory;
 
+    protected $table = 'outfits_of_the_day';
     protected $fillable = [
        'name',
        'image_source_url',
