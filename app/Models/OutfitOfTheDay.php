@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use App\Http\Requests\OutfitOfTheDayRequest;
+use App\Traits\ImageTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Facades\Storage;
 
 class OutfitOfTheDay extends Model
 {
-    use HasFactory;
+    use HasFactory, ImageTrait;
 
     protected $table = 'outfits_of_the_day';
     protected $fillable = [
@@ -29,21 +28,8 @@ class OutfitOfTheDay extends Model
         return $this->belongsToMany(StyleGuide::class);
     }
 
-    public function addImage(OutfitOfTheDayRequest $request): bool
+    public function getImageStorePath(): string
     {
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('outfit_of_the_day_images', 'public');
-            $this->image = $path;
-            return $this->save();
-        }
-
-        return false;
-    }
-
-    public function deleteImage(): bool
-    {
-        Storage::disk('public')->delete($this->image);
-        $this->image = null;
-        return $this->save();
+        return "outfit_of_the_day_images";
     }
 }
