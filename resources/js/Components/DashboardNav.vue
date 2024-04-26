@@ -29,8 +29,7 @@ const sidebarNavItems: Item[] = [
   },
   {
     title: 'Outfit of the Day',
-    // href: route('dashboard.outfit-of-the-day'),
-    href: route('home'),
+    href: route('outfits-of-the-day.dashboard'),
   },
 ];
 

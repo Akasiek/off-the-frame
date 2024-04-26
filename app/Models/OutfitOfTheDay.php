@@ -14,8 +14,9 @@ class OutfitOfTheDay extends Model
 
     protected $table = 'outfits_of_the_day';
     protected $fillable = [
-       'name',
-       'image_source_url',
+        'name',
+        'image_source_url',
+        'image',
     ];
 
     public function products(): BelongsToMany
@@ -28,21 +29,21 @@ class OutfitOfTheDay extends Model
         return $this->belongsToMany(StyleGuide::class);
     }
 
-    public static function addImage(Product $product, OutfitOfTheDayRequest $request): bool
+    public function addImage(OutfitOfTheDayRequest $request): bool
     {
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('outfit_of_the_day_images', 'public');
-            $product->image = $path;
-            return $product->save();
+            $this->image = $path;
+            return $this->save();
         }
 
         return false;
     }
 
-    public static function deleteImage(Product $product): bool
+    public function deleteImage(): bool
     {
-        Storage::disk('public')->delete($product->image);
-        $product->image = null;
-        return $product->save();
+        Storage::disk('public')->delete($this->image);
+        $this->image = null;
+        return $this->save();
     }
 }

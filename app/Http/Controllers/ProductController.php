@@ -40,7 +40,6 @@ class ProductController extends Controller
         return $this->dashboard();
     }
 
-
     public function update(ProductRequest $request, Product $product)
     {
         ProductService::update($request, $product);

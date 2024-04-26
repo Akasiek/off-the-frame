@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('outfit_of_the_day_id')->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
-            $table->timestamps();
         });
     }
 

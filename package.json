@@ -24,6 +24,7 @@
         "@fontsource-variable/montserrat": "^5.0.18",
         "@tanstack/vue-table": "^8.16.0",
         "@vee-validate/zod": "^4.12.6",
+        "@vueform/multiselect": "^2.6.7",
         "@vueuse/core": "^10.9.0",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.0",
