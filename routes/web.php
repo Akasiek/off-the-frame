@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\StyleGuideController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SiteController::class, 'home'])->name('home');
@@ -38,6 +39,17 @@ Route::prefix('outfits-of-the-day')->group(function () {
         // Multipart Inertia limitations
         Route::post('/{outfitOfTheDay}', [OutfitOfTheDayController::class, 'update'])->name('outfits-of-the-day.update');
         Route::delete('/{outfitOfTheDay}', [OutfitOfTheDayController::class, 'destroy'])->name('outfits-of-the-day.delete');
+    });
+});
+
+Route::prefix('style-guides')->group(function () {
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/dashboard', [StyleGuideController::class, 'dashboard'])->name('style-guides.dashboard');
+        Route::post('/', [StyleGuideController::class, 'store'])->name('style-guides.create');
+        // Multipart Inertia limitations
+        Route::post('/{styleGuide}', [StyleGuideController::class, 'update'])->name('style-guides.update');
+        Route::delete('/{styleGuide}', [StyleGuideController::class, 'destroy'])->name('style-guides.delete');
     });
 });
 
