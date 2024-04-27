@@ -15,7 +15,7 @@ class ProductImageResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'url' => Storage::url($this->url),
+            'url' => $this->url ? Storage::url($this->url) : null,
             'product_id' => $this->product_id,
         ];
     }

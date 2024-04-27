@@ -24,8 +24,7 @@ const sidebarNavItems: Item[] = [
   },
   {
     title: 'Style Guides',
-    // href: route('dashboard.style-guides'),
-    href: route('home'),
+    href: route('style-guides.dashboard'),
   },
   {
     title: 'Outfit of the Day',

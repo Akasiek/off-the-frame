@@ -25,8 +25,10 @@ class StyleGuideService
     {
         $styleGuide->update($request->validated());
 
-        if ($request->hasFile('image')) {
-            $styleGuide->deleteImage();
+        if ($request->hasFile('image') && $request->file('image')->isFile()) {
+            if ($styleGuide->image) {
+                $styleGuide->deleteImage();
+            }
             $styleGuide->addImage($request);
         }
 
