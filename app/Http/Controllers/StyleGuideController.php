@@ -40,20 +40,20 @@ class StyleGuideController extends Controller
     {
         StyleGuideService::create($request);
 
-        return $this->dashboard();
+        return redirect()->route('style-guides.dashboard');
     }
 
     public function update(StyleGuideRequest $request, StyleGuide $styleGuide)
     {
         StyleGuideService::update($request, $styleGuide);
 
-        return $this->dashboard();
+        return redirect()->route('style-guides.dashboard');
     }
 
     public function destroy(StyleGuide $styleGuide)
     {
         StyleGuideService::delete($styleGuide);
 
-        return $this->dashboard();
+        return redirect()->route('style-guides.dashboard');
     }
 }

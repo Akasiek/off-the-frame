@@ -37,7 +37,7 @@ class OutfitOfTheDayController extends Controller
     {
         OutfitOfTheDayService::create($request);
 
-        return $this->dashboard();
+        return redirect()->route('outfits-of-the-day.dashboard');
     }
 
 
@@ -45,13 +45,13 @@ class OutfitOfTheDayController extends Controller
     {
         OutfitOfTheDayService::update($request, $outfitOfTheDay);
 
-        return $this->dashboard();
+        return redirect()->route('outfits-of-the-day.dashboard');
     }
 
     public function destroy(OutfitOfTheDay $outfitOfTheDay)
     {
         OutfitOfTheDayService::delete($outfitOfTheDay);
 
-        return $this->dashboard();
+        return redirect()->route('outfits-of-the-day.dashboard');
     }
 }

@@ -2,8 +2,12 @@
 
 namespace App\Http\Requests;
 
+use App\Models\StyleGuide;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @mixin StyleGuide
+ */
 class StyleGuideRequest extends FormRequest
 {
     public function rules(): array
@@ -11,6 +15,12 @@ class StyleGuideRequest extends FormRequest
         return [
             'name' => ['required'],
             'description' => ['required'],
+
+            'products' => ['required', 'array'],
+            'products.*' => ['integer', 'exists:products,id'],
+
+            'outfitsOfTheDay' => ['required', 'array'],
+            'outfitsOfTheDay.*' => ['integer', 'exists:outfits_of_the_day,id'],
         ];
     }
 

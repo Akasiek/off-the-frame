@@ -11,8 +11,6 @@ const { outfitsOfTheDay, products } = defineProps<{
   products: Product[];
 }>();
 
-console.log(outfitsOfTheDay);
-
 const columns: ColumnDef<OutfitOfTheDay>[] = [
   {
     accessorKey: 'name',
