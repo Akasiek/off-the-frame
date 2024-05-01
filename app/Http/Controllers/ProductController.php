@@ -19,7 +19,11 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        return new ProductResource($product->load(['category', 'links', 'images']));
+        $product = new ProductResource($product->load(['category', 'links', 'images']));
+
+        return Inertia::render('Product/View', [
+            'product' => $product,
+        ]);
     }
 
     public function dashboard(): Response

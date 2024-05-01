@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SiteController::class, 'home'])->name('home');
 
 Route::prefix('products')->group(function () {
-
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [ProductController::class, 'dashboard'])->name('products.dashboard');
         Route::post('/', [ProductController::class, 'store'])->name('products.create');
@@ -19,6 +18,9 @@ Route::prefix('products')->group(function () {
         Route::post('/{product}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/{product}', [ProductController::class, 'destroy'])->name('products.delete');
     });
+
+    Route::get('/{product}', [ProductController::class, 'show'])->name('products.show');
+
 });
 
 Route::prefix('product-categories')->group(function () {
