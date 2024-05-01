@@ -12,7 +12,7 @@ defineProps<{
   <WrapperLayout :title="title">
     <Nav />
 
-    <main class="min-h-svh">
+    <main class="min-h-svh text-black">
       <slot />
     </main>
 
