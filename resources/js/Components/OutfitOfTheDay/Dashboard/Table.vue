@@ -52,7 +52,7 @@ const columns: ColumnDef<OutfitOfTheDay>[] = [
     id: 'actions',
     header: 'Akcje',
     cell: (props) =>
-      h('div', { class: 'space-x-2' }, [
+      h('div', { class: 'space-x-2 min-w-14' }, [
         h(OutfitOfTheDayUpdateForm, {
           products: products,
           outfitOfTheDay: props.row.original,

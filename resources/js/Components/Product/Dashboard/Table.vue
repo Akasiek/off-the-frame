@@ -72,7 +72,7 @@ const columns: ColumnDef<Product>[] = [
     id: 'actions',
     header: 'Akcje',
     cell: (props) =>
-      h('div', { class: 'space-x-2' }, [
+      h('div', { class: 'space-x-2 min-w-14' }, [
         h(ProductUpdateForm, {
           product: props.row.original,
           categories: categories,
