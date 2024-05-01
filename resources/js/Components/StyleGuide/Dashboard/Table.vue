@@ -23,8 +23,7 @@ const columns: ColumnDef<StyleGuide>[] = [
   {
     accessorKey: 'description',
     header: 'Opis',
-    // Render it and respect the line breaks
-    cell: (props) => h('div', { class: 'whitespace-pre-line' }, props.row.original.description),
+    cell: (props) => h('p', { class: 'truncate max-w-72', title: props.row.original.description }, props.row.original.description),
   },
   {
     accessorKey: 'image',
@@ -43,11 +42,9 @@ const columns: ColumnDef<StyleGuide>[] = [
     cell: (props) =>
       h(
         'div',
-        { class: 'flex flex-wrap gap-2' },
+        { class: 'flex flex-wrap gap-0 ' },
         props.row.original.products.map((product, index) =>
-          h('div', { class: 'flex gap-2' }, [
-            h('span', `${product.model} (${product.brand}) ${index === props.row.original.products.length - 1 ? '' : ','}`),
-          ])
+          h('div', { class: 'flex gap-1' }, [h('span', `${product.model}${index === props.row.original.products.length - 1 ? ' ' : ', '}`)])
         )
       ),
   },
@@ -57,7 +54,7 @@ const columns: ColumnDef<StyleGuide>[] = [
     cell: (props) =>
       h(
         'div',
-        { class: 'flex flex-wrap gap-2' },
+        { class: 'flex flex-wrap gap-2 min-w-[7.3rem]' },
         props.row.original.outfitsOfTheDay.map((outfit, index) =>
           h('div', { class: 'flex gap-2' }, [
             h('span', `${outfit.name} ${index === props.row.original.outfitsOfTheDay.length - 1 ? '' : ','}`),
@@ -70,7 +67,7 @@ const columns: ColumnDef<StyleGuide>[] = [
     id: 'actions',
     header: 'Akcje',
     cell: (props) =>
-      h('div', { class: 'space-x-2' }, [
+      h('div', { class: 'space-x-2 min-w-14' }, [
         h(StyleGuideUpdateForm, {
           products: products,
           outfitsOfTheDay: outfitsOfTheDay,

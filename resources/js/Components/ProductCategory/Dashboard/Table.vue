@@ -4,7 +4,7 @@ import { ProductCategory } from '@/Interfaces';
 import { ColumnDef } from '@tanstack/vue-table';
 import { DataTable } from '@/Components/ui/table';
 import DeleteDialog from '@/Components/DeleteDialog.vue';
-import { ProductCategoryUpdateForm, ProductCategoryCreateForm } from '@/Components/ProductCategory/Form';
+import { ProductCategoryCreateForm, ProductCategoryUpdateForm } from '@/Components/ProductCategory/Form';
 
 const { categories } = defineProps<{
   categories: { data: ProductCategory[] };
@@ -20,7 +20,7 @@ const columns: ColumnDef<ProductCategory>[] = [
     id: 'actions',
     header: 'Akcje',
     cell: (props) =>
-      h('div', { class: 'space-x-2' }, [
+      h('div', { class: 'space-x-2 min-w-14' }, [
         h(ProductCategoryUpdateForm, {
           category: props.row.original,
         }),
