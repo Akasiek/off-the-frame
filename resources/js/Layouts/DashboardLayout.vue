@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import SidebarNav from '@/Components/DashboardNav.vue';
 import { Separator } from '@/Components/ui/separator';
-import { Button } from '@/Components/ui/button';
 import WrapperLayout from '@/Layouts/WrapperLayout.vue';
+import { changeTheme, getTheme } from '@/lib/utils';
+import { onMounted } from 'vue';
 
 defineProps<{
+  title: string;
   headerTitle: string;
   headerSubtext?: string;
 }>();
-
-import { changeTheme, getTheme } from '@/lib/utils';
-import { onMounted } from 'vue';
 
 // Get system or preferred theme
 onMounted(() => {
@@ -19,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <WrapperLayout>
+  <WrapperLayout :title="title">
     <div class="dark:bg-zinc-950 dark:text-zinc-50 min-h-screen">
       <div class="space-y-6 p-4 md:p-10 pb-16 mx-auto max-w-6xl pt-4">
         <div class="space-y-0.5">

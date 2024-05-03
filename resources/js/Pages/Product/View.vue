@@ -10,7 +10,7 @@ const { product } = defineProps<{
 
 <template>
   <PrimaryLayout :title="`${product.data.brand} - ${product.data.model}`">
-    <main class="max-w-6xl mx-auto min-h-screen mt-[12dvh]">
+    <main class="max-w-6xl mx-auto mt-[12dvh] mb-64">
       <ViewCard :product="product.data" />
     </main>
   </PrimaryLayout>
