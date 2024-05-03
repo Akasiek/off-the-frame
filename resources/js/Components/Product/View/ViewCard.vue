@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <div class="grid grid-cols-[3fr_auto_4fr] rounded-3xl border-2 overflow-hidden gap-x-6">
-    <div>
+    <div class="overflow-hidden">
       <GallerySlider :product="product" />
     </div>
     <div class="border-r-2 h-3/4 my-auto" />

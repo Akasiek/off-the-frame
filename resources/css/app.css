@@ -1,5 +1,5 @@
 
-@import url('node_modules/@egjs/vue3-flicking/dist/flicking.css');
+@import url('@egjs/vue3-flicking/dist/flicking.css');
 
 @tailwind base;
 @tailwind components;
