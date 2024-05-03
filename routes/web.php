@@ -34,7 +34,6 @@ Route::prefix('product-categories')->group(function () {
 });
 
 Route::prefix('outfits-of-the-day')->group(function () {
-
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [OutfitOfTheDayController::class, 'dashboard'])->name('outfits-of-the-day.dashboard');
         Route::post('/', [OutfitOfTheDayController::class, 'store'])->name('outfits-of-the-day.create');
@@ -42,6 +41,8 @@ Route::prefix('outfits-of-the-day')->group(function () {
         Route::post('/{outfitOfTheDay}', [OutfitOfTheDayController::class, 'update'])->name('outfits-of-the-day.update');
         Route::delete('/{outfitOfTheDay}', [OutfitOfTheDayController::class, 'destroy'])->name('outfits-of-the-day.delete');
     });
+
+    Route::get('/{outfitOfTheDay}', [OutfitOfTheDayController::class, 'show'])->name('outfits-of-the-day.show');
 });
 
 Route::prefix('style-guides')->group(function () {

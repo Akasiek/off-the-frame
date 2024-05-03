@@ -19,7 +19,11 @@ class OutfitOfTheDayController extends Controller
 
     public function show(OutfitOfTheDay $outfitOfTheDay)
     {
-        return new OutfitOfTheDayResource($outfitOfTheDay->load(['products']));
+        $resource = new OutfitOfTheDayResource($outfitOfTheDay->load(['products', 'products.images', 'products.links']));
+
+        return Inertia::render('OutfitOfTheDay/View', [
+            'outfitOfTheDay' => $resource,
+        ]);
     }
 
     public function dashboard(): Response

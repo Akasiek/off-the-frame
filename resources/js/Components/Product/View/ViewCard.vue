@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="grid grid-cols-[3fr_auto_4fr] rounded-3xl border-2 overflow-hidden gap-x-6">
+  <div class="bg-white-0 grid grid-cols-[3fr_auto_4fr] rounded-3xl border-2 overflow-hidden gap-x-6">
     <div class="overflow-hidden">
       <GallerySlider :product="product" />
     </div>
