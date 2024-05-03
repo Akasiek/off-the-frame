@@ -13,7 +13,7 @@ defineProps<{
 <template>
   <Head title="Produkty" />
 
-  <DashboardLayout header-title="Ustawienia produktów" header-subtext="Tutaj możesz zarządzać produktami.">
+  <DashboardLayout title="Ustawienia produktów" header-title="Ustawienia produktów" header-subtext="Tutaj możesz zarządzać produktami.">
     <ProductTable :products="products" :categories="categories" />
   </DashboardLayout>
 </template>

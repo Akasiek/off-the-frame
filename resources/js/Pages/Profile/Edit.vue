@@ -13,7 +13,7 @@ defineProps<{
 <template>
   <Head title="Profil" />
 
-  <DashboardLayout header-title="Ustawienia profilu" header-subtext="Tutaj możesz zarządzać swoim kontem.">
+  <DashboardLayout title="Ustawienia profilu" header-title="Ustawienia profilu" header-subtext="Tutaj możesz zarządzać swoim kontem.">
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
         <div class="p-4 sm:p-8 bg-white dark:bg-zinc-900 shadow sm:rounded-lg">
