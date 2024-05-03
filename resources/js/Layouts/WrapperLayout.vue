@@ -15,5 +15,7 @@ defineProps<{
 
   <Toaster />
 
-  <slot />
+  <div class="text-black bg-white">
+    <slot />
+  </div>
 </template>
