@@ -23,10 +23,13 @@ defineProps<{
       </div>
 
       <PaginatedList :total="products.meta.total" :per-page="products.meta.per_page">
-        <div class="mx-auto max-w-6xl grid grid-cols-4 gap-y-12 gap-x-4 justify-items-center">
+        <div class="mx-auto max-w-6xl grid grid-cols-4 gap-y-12 gap-x-4 justify-items-center" v-if="products.data.length">
           <template v-for="product in products.data">
             <Card :product="product" />
           </template>
+        </div>
+        <div class="mx-auto max-w-6xl text-center my-24" v-else>
+          <p class="font-bold text-2xl">No products found for this query.</p>
         </div>
       </PaginatedList>
     </div>
