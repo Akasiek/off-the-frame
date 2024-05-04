@@ -31,6 +31,9 @@ COPY . /app
 RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 RUN chmod -R 775 /app/storage /app/bootstrap/cache
 
+# Run Composer
+RUN composer install --no-dev --no-interaction --no-progress --optimize-autoloader
+
 # Run artisan commands
 RUN php artisan key:generate && \
     php artisan config:clear && \
