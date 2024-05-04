@@ -14,7 +14,11 @@ defineProps<{
 <template>
   <Head title="Style Guides" />
 
-  <DashboardLayout header-title="Ustawienia Style Guides" header-subtext="Tutaj możesz zarządzać Style Guides">
+  <DashboardLayout
+    title="Ustawienia Style Guides"
+    header-title="Ustawienia Style Guides"
+    header-subtext="Tutaj możesz zarządzać Style Guides"
+  >
     <StyleGuideTable :products="products" :outfits-of-the-day="outfitsOfTheDay" :style-guides="styleGuides" />
   </DashboardLayout>
 </template>

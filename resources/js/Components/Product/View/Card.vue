@@ -16,7 +16,7 @@ const smallestPrice = computed(() =>
 <template>
   <a
     :key="product.id"
-    :href="`/products/${product.id}`"
+    :href="route('products.show', product.id)"
     class="w-64 h-full bg-white-0 py-5 px-5 rounded-2xl border flex flex-col justify-between gap-y-4"
   >
     <div class="h-full flex items-center justify-center">

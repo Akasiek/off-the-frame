@@ -20,7 +20,11 @@ class StyleGuideController extends Controller
 
     public function show(StyleGuide $styleGuide)
     {
-        return new StyleGuideResource($styleGuide->load(['outfitsOfTheDay', 'products']));
+        $resource = new StyleGuideResource($styleGuide->load(['outfitsOfTheDay', 'products', 'products.images', 'products.links']));
+
+        return Inertia::render('StyleGuide/View', [
+            'styleGuide' => $resource,
+        ]);
     }
 
     public function dashboard(): Response

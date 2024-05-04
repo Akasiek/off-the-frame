@@ -57,7 +57,7 @@ const columns: ColumnDef<StyleGuide>[] = [
         { class: 'flex flex-wrap gap-2 min-w-[7.3rem]' },
         props.row.original.outfitsOfTheDay.map((outfit, index) =>
           h('div', { class: 'flex gap-2' }, [
-            h('span', `${outfit.name} ${index === props.row.original.outfitsOfTheDay.length - 1 ? '' : ','}`),
+            h('span', `${outfit.name}${index === props.row.original.outfitsOfTheDay.length - 1 ? '' : ','}`),
           ])
         )
       ),

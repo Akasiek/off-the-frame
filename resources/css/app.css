@@ -86,3 +86,25 @@
         @apply relative after:absolute after:-bottom-0 after:h-0.5 after:bg-black after:right-0 after:w-0 after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full hover:after:right-auto
     }
 }
+
+.eased-gradient {
+    background: linear-gradient(
+        to right,
+        hsla(0, 0%, 98%, 0) 0%,
+        hsla(0, 0%, 98%, 0.013) 8.1%,
+        hsla(0, 0%, 98%, 0.049) 15.5%,
+        hsla(0, 0%, 98%, 0.104) 22.5%,
+        hsla(0, 0%, 98%, 0.175) 29%,
+        hsla(0, 0%, 98%, 0.259) 35.3%,
+        hsla(0, 0%, 98%, 0.352) 41.2%,
+        hsla(0, 0%, 98%, 0.45) 47.1%,
+        hsla(0, 0%, 98%, 0.55) 52.9%,
+        hsla(0, 0%, 98%, 0.648) 58.8%,
+        hsla(0, 0%, 98%, 0.741) 64.7%,
+        hsla(0, 0%, 98%, 0.825) 71%,
+        hsla(0, 0%, 98%, 0.896) 77.5%,
+        hsla(0, 0%, 98%, 0.951) 84.5%,
+        hsla(0, 0%, 98%, 0.987) 91.9%,
+        hsl(0, 0%, 98%) 100%
+    );
+}
