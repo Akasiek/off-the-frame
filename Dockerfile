@@ -42,7 +42,10 @@ RUN sed -i "s/APP_URL=http:\/\/localhost/APP_URL=http:\/\/$SERVER_NAME/g" .env
 RUN sed -i "s/APP_ENV=local/APP_ENV=production/g" .env
 RUN sed -i "s/APP_DEBUG=true/APP_DEBUG=false/g" .env
 
-# Create the SQLite database
+# Create volume for the SQLite database
+VOLUME /app/database
+
+# Create the SQLite database if it does not exist
 RUN touch database/database.sqlite
 
 # Run artisan commands
