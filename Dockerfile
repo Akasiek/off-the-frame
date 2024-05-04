@@ -47,6 +47,7 @@ RUN touch database/database.sqlite
 
 # Run artisan commands
 RUN php artisan key:generate && \
+    php artisan migrate && \
     php artisan config:clear && \
     php artisan cache:clear && \
     php artisan config:cache && \
