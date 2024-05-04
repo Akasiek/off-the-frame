@@ -14,7 +14,20 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return ProductResource::collection(Product::with(['category', 'links', 'images'])->get());
+        $categoryParam = request()->query('category');
+
+        if ($categoryParam) {
+            $resource = ProductResource::collection(Product::with(['category', 'links', 'images'])->whereHas('category', function ($query) use ($categoryParam) {
+                $query->where('slug', $categoryParam);
+            })->paginate(24));
+        } else {
+            $resource = ProductResource::collection(Product::with(['category', 'links', 'images'])->paginate(24));
+        }
+
+        return Inertia::render('Product/Home', [
+            'products' => $resource,
+            'categories' => ProductCategory::all(),
+        ]);
     }
 
     public function show(Product $product)

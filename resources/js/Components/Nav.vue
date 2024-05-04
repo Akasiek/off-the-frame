@@ -9,8 +9,7 @@ const links = [
     name: 'style guides',
   },
   {
-    // route: 'products',
-    route: 'home',
+    route: 'products.index',
     name: 'products by category',
   },
   {

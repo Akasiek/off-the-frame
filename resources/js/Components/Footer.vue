@@ -9,8 +9,7 @@ const links = [
     name: 'style guides',
   },
   {
-    // route: 'products',
-    route: 'home',
+    route: 'products.index',
     name: 'products by category',
   },
   {
@@ -35,11 +34,6 @@ const links = [
           {{ link.name }}
         </Link>
       </div>
-    </div>
-
-    <div class="flex flex-col mt-auto justify-end gap-y-2 items-end text-zinc-400 font-semibold">
-      <Link :href="route('home')" class="cool-underline after:bg-zinc-400">Cookie Policy</Link>
-      <Link :href="route('home')" class="cool-underline after:bg-zinc-400">Privacy Policy</Link>
     </div>
   </div>
 </template>

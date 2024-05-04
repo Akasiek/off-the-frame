@@ -12,7 +12,9 @@ defineProps<{
   <WrapperLayout :title="title">
     <Nav />
 
-    <slot />
+    <div class="min-h-screen">
+      <slot />
+    </div>
 
     <Footer />
   </WrapperLayout>
