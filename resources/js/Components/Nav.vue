@@ -4,8 +4,7 @@ import Logo from '@/Components/Logo.vue';
 
 const links = [
   {
-    // route: 'style-guides',
-    route: 'home',
+    route: 'style-guides.index',
     name: 'style guides',
   },
   {

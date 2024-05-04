@@ -55,6 +55,7 @@ Route::prefix('style-guides')->group(function () {
         Route::delete('/{styleGuide}', [StyleGuideController::class, 'destroy'])->name('style-guides.delete');
     });
 
+    Route::get('/', [StyleGuideController::class, 'index'])->name('style-guides.index');
     Route::get('/{styleGuide}', [StyleGuideController::class, 'show'])->name('style-guides.show');
 });
 

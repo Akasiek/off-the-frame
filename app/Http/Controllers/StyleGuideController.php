@@ -15,7 +15,11 @@ class StyleGuideController extends Controller
 {
     public function index()
     {
-        return StyleGuideResource::collection(StyleGuide::with(['outfitsOfTheDay', 'products'])->get());
+        $resource = StyleGuideResource::collection(StyleGuide::with(['outfitsOfTheDay', 'products'])->paginate(24));
+
+        return Inertia::render('StyleGuide/Home', [
+            'styleGuides' => $resource,
+        ]);
     }
 
     public function show(StyleGuide $styleGuide)
