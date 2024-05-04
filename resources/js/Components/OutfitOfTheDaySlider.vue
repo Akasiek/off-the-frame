@@ -1,19 +1,18 @@
 <script setup lang="ts">
 import Flicking from '@egjs/vue3-flicking';
-
-import Card from '@/Components/Product/View/Card.vue';
-import { Product } from '@/Interfaces';
+import Card from '@/Components/OutfitOfTheDay/Card.vue';
+import { OutfitOfTheDay } from '@/Interfaces';
 
 defineProps<{
-  products: Product[];
+  outfitsOfTheDay: OutfitOfTheDay[];
 }>();
 </script>
 
 <template>
   <div class="relative max-w-6xl mx-auto">
     <Flicking :options="{ align: 'prev' }">
-      <div v-for="product in products" class="h-auto card-panel mr-12">
-        <Card :product="product" />
+      <div v-for="outfit in outfitsOfTheDay" class="h-auto card-panel mr-12">
+        <Card :outfit-of-the-day="outfit" />
       </div>
     </Flicking>
 

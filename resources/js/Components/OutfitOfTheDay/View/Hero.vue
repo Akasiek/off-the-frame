@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <header class="py-8 bg-white-0 rounded-b-[4rem] shadow-[0_0_24px_4px_#00000008]">
+  <header class="py-8 bg-white-0 rounded-[4rem] shadow-[0_0_24px_4px_#00000008]">
     <div class="max-w-5xl mx-auto grid grid-cols-[4fr_5fr] my-4">
       <div class="p-6 h-full overflow-hidden">
         <a :href="outfitOfTheDay.image_source_url" target="_blank">

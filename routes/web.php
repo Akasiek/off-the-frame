@@ -46,7 +46,6 @@ Route::prefix('outfits-of-the-day')->group(function () {
 });
 
 Route::prefix('style-guides')->group(function () {
-
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [StyleGuideController::class, 'dashboard'])->name('style-guides.dashboard');
         Route::post('/', [StyleGuideController::class, 'store'])->name('style-guides.create');
@@ -54,6 +53,8 @@ Route::prefix('style-guides')->group(function () {
         Route::post('/{styleGuide}', [StyleGuideController::class, 'update'])->name('style-guides.update');
         Route::delete('/{styleGuide}', [StyleGuideController::class, 'destroy'])->name('style-guides.delete');
     });
+
+    Route::get('/{styleGuide}', [StyleGuideController::class, 'show'])->name('style-guides.show');
 });
 
 Route::middleware('auth')->group(function () {
