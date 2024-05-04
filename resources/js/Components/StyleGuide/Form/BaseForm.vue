@@ -31,7 +31,7 @@ const submit = () => {
   if (styleGuide) {
     form.post(route('style-guides.update', styleGuide.id), {
       // Inertia multipart limitation
-      _method: 'put',
+      method: 'put',
       onSuccess: () => {
         handleSuccess();
       },

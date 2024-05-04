@@ -28,7 +28,7 @@ const submit = () => {
   if (outfitOfTheDay) {
     form.post(route('outfits-of-the-day.update', outfitOfTheDay.id), {
       // Inertia multipart limitation
-      _method: 'put',
+      method: 'put',
       onSuccess: () => {
         handleSuccess();
       },

@@ -2,8 +2,7 @@
 import { Product, ProductCategory } from '@/Interfaces';
 import { toast } from '@/Components/ui/toast';
 import { useForm } from '@inertiajs/vue3';
-import { TextField } from '@/Components/Form';
-import { Select } from '@/Components/Form';
+import { Select, TextField } from '@/Components/Form';
 import { Button } from '@/Components/ui/button';
 import { Input } from '@/Components/ui/input';
 import { Label } from '@/Components/ui/label';
@@ -34,7 +33,7 @@ const submit = () => {
   if (product) {
     form.post(route('products.update', product.id), {
       // Inertia multipart limitation
-      _method: 'put',
+      method: 'put',
       onSuccess: () => {
         handleSuccess();
       },
