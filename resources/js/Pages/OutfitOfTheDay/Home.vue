@@ -14,7 +14,7 @@ defineProps<{
 </script>
 
 <template>
-  <PrimaryLayout title="Products"
+  <PrimaryLayout title="Outfits of the Day"
     ><div class="my-16">
       <PaginatedList :total="outfitsOfTheDay.meta.total" :per-page="outfitsOfTheDay.meta.per_page">
         <div class="mx-auto max-w-6xl grid grid-cols-4 gap-y-12 gap-x-4 justify-items-center">
