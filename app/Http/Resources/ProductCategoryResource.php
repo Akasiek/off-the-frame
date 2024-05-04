@@ -2,9 +2,19 @@
 
 namespace App\Http\Resources;
 
+use App\Models\ProductCategory;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @mixin ProductCategory
+ */
 class ProductCategoryResource extends JsonResource
 {
-
+    public function toArray($request): array
+    {
+        return [
+            'name' => $this->name,
+            'slug' => $this->slug,
+        ];
+    }
 }
