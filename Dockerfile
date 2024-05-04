@@ -3,8 +3,8 @@ FROM dunglas/frankenphp as unibase-frankenphp
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install VIM
-RUN apt-get update && apt-get install -y vim
+# Install VIM and Git
+RUN apt-get update && apt-get install -y vim git
 
 # Install the PostgreSQL PHP extensions and other dependencies
 RUN install-php-extensions \
