@@ -14,7 +14,11 @@ class OutfitOfTheDayController extends Controller
 {
     public function index()
     {
-        return OutfitOfTheDayResource::collection(OutfitOfTheDay::with(['products'])->get());
+        $resource = OutfitOfTheDayResource::collection(OutfitOfTheDay::with(['products'])->paginate(24));
+
+        return Inertia::render('OutfitOfTheDay/Home', [
+            'outfitsOfTheDay' => $resource,
+        ]);
     }
 
     public function show(OutfitOfTheDay $outfitOfTheDay)

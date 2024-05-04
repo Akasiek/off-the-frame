@@ -13,8 +13,7 @@ const links = [
     name: 'products by category',
   },
   {
-    // route: 'outfit-of-the-day',
-    route: 'home',
+    route: 'outfits-of-the-day.index',
     name: 'outfit of the day',
   },
 ];

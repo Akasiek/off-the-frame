@@ -42,6 +42,7 @@ Route::prefix('outfits-of-the-day')->group(function () {
         Route::delete('/{outfitOfTheDay}', [OutfitOfTheDayController::class, 'destroy'])->name('outfits-of-the-day.delete');
     });
 
+    Route::get('/', [OutfitOfTheDayController::class, 'index'])->name('outfits-of-the-day.index');
     Route::get('/{outfitOfTheDay}', [OutfitOfTheDayController::class, 'show'])->name('outfits-of-the-day.show');
 });
 
