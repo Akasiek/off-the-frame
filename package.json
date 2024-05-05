@@ -36,6 +36,7 @@
         "tailwind-merge": "^2.2.2",
         "tailwindcss-animate": "^1.0.7",
         "vee-validate": "^4.12.6",
+        "vue-gtag": "^2.0.1",
         "zod": "^3.22.4"
     },
     "prettier": {
