@@ -28,8 +28,8 @@ module.exports = {
           DEFAULT: '#3B3A3A',
         },
         white: {
-          0: '#FFFFFF',
           DEFAULT: '#FBFBFB',
+          0: '#FFFFFF',
           50: '#FBFBFB',
           100: '#FAF9F9',
         },
