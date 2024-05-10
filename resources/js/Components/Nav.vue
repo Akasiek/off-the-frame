@@ -20,16 +20,21 @@ const links = [
 
 <template>
   <nav
-    class="sticky top-0 inset-x-0 flex flex-col items-center gap-y-4 py-4 rounded-b-3xl shadow-[0_4px_16px_0_rgba(0,0,0,0.075)] bg-white-100 z-50"
+    class="sticky top-0 inset-x-0 flex flex-col items-center gap-y-2 sm:gap-y-4 py-2 sm:py-4 rounded-b-3xl shadow-[0_4px_16px_0_rgba(0,0,0,0.075)] bg-white-100 z-50 overflow-hidden"
   >
     <div>
       <Link :href="route('home')" class="font-semibold">
-        <Logo class="h-16" />
+        <Logo class="h-8 sm:h-12 md:h-16" />
       </Link>
     </div>
 
-    <div class="flex gap-x-6 ml-8">
-      <Link :href="route(link.route)" v-for="link in links" :key="link.route" class="font-semibold text-black cool-underline">
+    <div class="flex gap-x-2 sm:gap-x-6 md:ml-8 flex-wrap w-fit justify-center">
+      <Link
+        :href="route(link.route)"
+        v-for="link in links"
+        :key="link.route"
+        class="font-semibold text-black cool-underline md:text-base sm:text-sm text-xs"
+      >
         {{ link.name }}
       </Link>
     </div>
