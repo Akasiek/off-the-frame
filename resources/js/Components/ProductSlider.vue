@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <div class="relative max-w-6xl mx-auto">
     <Flicking :options="{ align: 'prev', inputType: ['pointer'] }">
-      <div v-for="product in products" class="h-auto card-panel mr-12">
+      <div v-for="product in products" class="h-auto card-panel mr-12 my-1" :key="product.id">
         <Card :product="product" />
       </div>
     </Flicking>

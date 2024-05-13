@@ -28,7 +28,7 @@ defineProps<{
         <img
           :src="image.url"
           :alt="`${product.brand} - ${product.model} - ${index}`"
-          class="w-fit h-fit aspect-auto pointer-events-none rounded-3xl"
+          class="w-fit h-fit min-w-fit min-h-fit aspect-auto pointer-events-none rounded-3xl"
         />
       </div>
 

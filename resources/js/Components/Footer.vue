@@ -23,7 +23,7 @@ const links = [
     <div class="flex-1 space-y-4">
       <div>
         <Link :href="route('home')" class="font-semibold">
-          <Logo class="h-8 sm:h-12 md:h-16 w-fit" />
+          <Logo class="h-8 sm:h-12 md:h-16 w-fit min-w-fit" />
         </Link>
       </div>
 

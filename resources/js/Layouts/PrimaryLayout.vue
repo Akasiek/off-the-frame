@@ -10,12 +10,14 @@ defineProps<{
 
 <template>
   <WrapperLayout :title="title">
-    <Nav />
+    <div>
+      <Nav />
 
-    <div class="min-h-screen">
-      <slot />
+      <div class="min-h-screen">
+        <slot />
+      </div>
+
+      <Footer />
     </div>
-
-    <Footer />
   </WrapperLayout>
 </template>
