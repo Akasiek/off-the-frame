@@ -23,6 +23,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        xs: '480px',
+      },
       colors: {
         black: {
           DEFAULT: '#3B3A3A',

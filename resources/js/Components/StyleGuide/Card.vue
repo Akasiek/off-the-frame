@@ -10,9 +10,9 @@ defineProps<{
   <a
     :key="styleGuide.id"
     :href="route('style-guides.show', styleGuide.id)"
-    class="flex flex-col rounded-2xl overflow-hidden w-80 bg-white-0 border"
+    class="flex flex-col rounded-2xl overflow-hidden max-w-80 w-full bg-white-0 border"
   >
-    <div class="w-full h-96 overflow-hidden rounded-2xl">
+    <div class="w-full md:h-96 sm:h-80 overflow-hidden rounded-2xl">
       <img :src="styleGuide.image" :alt="`${styleGuide.name} image`" class="w-full h-full object-center object-cover" />
     </div>
 

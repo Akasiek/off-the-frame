@@ -14,11 +14,11 @@ defineProps<{
   <PrimaryLayout :title="styleGuide.data.name">
     <Hero :style-guide="styleGuide.data" />
 
-    <section class="my-20" v-if="styleGuide.data.outfitsOfTheDay.length">
+    <section class="lg:py-12 md:py-10 py-6 lg:px-8 sm:px-4 px-2" v-if="styleGuide.data.outfitsOfTheDay.length">
       <OutfitOfTheDaySlider :outfits-of-the-day="styleGuide.data.outfitsOfTheDay" />
     </section>
 
-    <section class="my-20" v-if="styleGuide.data.products.length">
+    <section class="lg:py-12 md:py-10 py-6 lg:px-8 sm:px-4 px-2" v-if="styleGuide.data.products.length">
       <ProductSlider :products="styleGuide.data.products" />
     </section>
   </PrimaryLayout>

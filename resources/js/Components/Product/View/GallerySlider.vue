@@ -11,15 +11,24 @@ defineProps<{
   product: Product;
 }>();
 </script>
+`
 
 <template>
-  <div class="pl-8 py-6 pr-6">
-    <Flicking :options="{ circular: false, align: 'center', panelsPerView: 1 }" class="h-[30rem]" :plugins="plugins">
-      <div v-for="(image, index) in product.images" :key="index" class="card-panel h-full w-full rounded-3xl overflow-hidden">
+  <div class="xl:pl-8 xl:py-6 xl:pr-4 lg:pl-7 lg:py-6 lg:pr-2 pl-5 py-5 pr-5">
+    <Flicking
+      :options="{ circular: false, align: 'center', panelsPerView: 1, inputType: ['pointer'], preventClickOnDrag: true }"
+      class="h-[30rem]"
+      :plugins="plugins"
+    >
+      <div
+        v-for="(image, index) in product.images"
+        :key="index"
+        class="card-panel h-full w-full flex items-center overflow-hidden rounded-3xl"
+      >
         <img
           :src="image.url"
           :alt="`${product.brand} - ${product.model} - ${index}`"
-          class="h-full w-full object-center object-cover pointer-events-none"
+          class="w-fit h-fit aspect-auto pointer-events-none rounded-3xl"
         />
       </div>
 

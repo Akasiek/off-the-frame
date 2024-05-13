@@ -15,9 +15,9 @@ defineProps<{
 
 <template>
   <PrimaryLayout title="Outfits of the Day"
-    ><div class="my-16">
+    ><div class="lg:my-16 my-12 lg:px-8 sm:px-4 px-2">
       <PaginatedList :total="outfitsOfTheDay.meta.total" :per-page="outfitsOfTheDay.meta.per_page">
-        <div class="mx-auto max-w-6xl grid grid-cols-4 gap-y-12 gap-x-4 justify-items-center">
+        <div class="mx-auto max-w-6xl grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2 lg:gap-y-12 gap-y-6 gap-x-6 justify-items-center">
           <template v-for="outfit in outfitsOfTheDay.data">
             <Card :outfit-of-the-day="outfit" />
           </template>

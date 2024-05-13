@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <div class="relative max-w-6xl mx-auto">
-    <Flicking :options="{ align: 'prev' }">
+    <Flicking :options="{ align: 'prev', inputType: ['pointer'], preventClickOnDrag: true }">
       <div v-for="outfit in outfitsOfTheDay" class="h-auto card-panel mr-12">
         <Card :outfit-of-the-day="outfit" />
       </div>

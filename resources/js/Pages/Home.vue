@@ -24,9 +24,7 @@ import style2 from '@/Assets/style_2.webp';
             <img :src="oftd" alt="Outfit of the day" class="rounded-2xl h-full w-full md:w-96 object-cover object-top" />
           </div>
         </div>
-        <h2 class="lg:text-3xl text-2xl text-center text-gray-800 font-semibold p-4 uppercase font-serif tracking-wider">
-          Outfit of the day
-        </h2>
+        <h2 class="lg:text-2xl text-xl text-center text-gray-800 p-4 uppercase font-serif tracking-wider">Outfit of the day</h2>
       </a>
 
       <a class="block" :href="route('products.index')">
@@ -37,9 +35,7 @@ import style2 from '@/Assets/style_2.webp';
             <img :src="prod4" alt="Product 4" class="absolute bottom-4 left-4 w-48 h-48" />
           </div>
         </div>
-        <h2 class="lg:text-3xl text-2xl text-center text-gray-800 font-semibold p-4 uppercase font-serif tracking-wider">
-          Products by Category
-        </h2>
+        <h2 class="lg:text-2xl text-xl text-center text-gray-800 p-4 uppercase font-serif tracking-wider">Products by Category</h2>
       </a>
 
       <a class="block" :href="route('style-guides.index')">
@@ -49,7 +45,7 @@ import style2 from '@/Assets/style_2.webp';
             <img :src="style2" alt="Style 2" />
           </div>
         </div>
-        <h2 class="lg:text-3xl text-2xl text-center text-gray-800 font-semibold p-4 uppercase font-serif tracking-wider">Style Guide</h2>
+        <h2 class="lg:text-2xl text-xl text-center text-gray-800 p-4 uppercase font-serif tracking-wider">Style Guide</h2>
       </a>
     </div>
   </PrimaryLayout>

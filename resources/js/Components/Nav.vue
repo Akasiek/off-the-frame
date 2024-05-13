@@ -9,6 +9,7 @@ const links = [
   },
   {
     route: 'products.index',
+    args: { category: 'shoes' },
     name: 'products by category',
   },
   {
@@ -28,9 +29,9 @@ const links = [
       </Link>
     </div>
 
-    <div class="flex gap-x-2 sm:gap-x-6 md:ml-8 flex-wrap w-fit justify-center">
+    <div class="flex gap-x-2 sm:gap-x-6 md:ml-8 px-4 flex-wrap w-fit justify-center">
       <Link
-        :href="route(link.route)"
+        :href="route(link.route, link.args)"
         v-for="link in links"
         :key="link.route"
         class="font-semibold text-black cool-underline md:text-base sm:text-sm text-xs"

@@ -17,13 +17,16 @@ defineProps<{
 
 <template>
   <PrimaryLayout title="Products">
-    <div class="my-16">
+    <div class="lg:my-16 my-12 lg:px-8 sm:px-4 px-2">
       <div class="mx-auto max-w-6xl my-12">
         <CategoryButtons :categories="categories" />
       </div>
 
       <PaginatedList :total="products.meta.total" :per-page="products.meta.per_page">
-        <div class="mx-auto max-w-6xl grid grid-cols-4 gap-y-12 gap-x-4 justify-items-center" v-if="products.data.length">
+        <div
+          class="mx-auto max-w-6xl grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-4 justify-items-center"
+          v-if="products.data.length"
+        >
           <template v-for="product in products.data">
             <Card :product="product" />
           </template>

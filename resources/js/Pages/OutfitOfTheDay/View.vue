@@ -13,7 +13,7 @@ defineProps<{
   <PrimaryLayout :title="`${outfitOfTheDay.data.name}`">
     <Hero :outfit-of-the-day="outfitOfTheDay.data" />
 
-    <section class="my-20">
+    <section class="lg:py-20 md:py-16 py-12 lg:px-8 sm:px-4 px-2">
       <ProductGallery :products="outfitOfTheDay.data.products" />
     </section>
   </PrimaryLayout>
