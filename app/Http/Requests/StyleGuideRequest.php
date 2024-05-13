@@ -15,6 +15,7 @@ class StyleGuideRequest extends FormRequest
         return [
             'name' => ['required'],
             'description' => ['required'],
+            'image' => ['required', 'image'],
 
             'products' => ['required', 'array'],
             'products.*' => ['integer', 'exists:products,id'],
