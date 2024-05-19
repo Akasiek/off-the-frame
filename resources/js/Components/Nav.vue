@@ -21,7 +21,7 @@ const links = [
 
 <template>
   <nav
-    class="sticky top-0 inset-x-0 flex flex-col items-center gap-y-2 sm:gap-y-4 py-2 sm:py-4 rounded-b-3xl shadow-[0_4px_16px_0_rgba(0,0,0,0.075)] bg-white-100 z-50 overflow-hidden w-full min-w-full"
+    class="sticky top-0 inset-x-0 flex flex-col items-center gap-y-2 sm:gap-y-4 py-2 sm:py-4 rounded-b-3xl shadow-[0_4px_16px_0_rgba(0,0,0,0.075)] bg-white-100 z-50 overflow-hidden w-auto"
   >
     <div>
       <Link :href="route('home')" class="font-semibold">
@@ -29,7 +29,7 @@ const links = [
       </Link>
     </div>
 
-    <div class="flex gap-x-2 sm:gap-x-6 md:ml-8 px-4 flex-wrap w-fit justify-center">
+    <div class="flex gap-x-2 sm:gap-x-6 md:ml-8 px-4 flex-wrap w-auto justify-center">
       <Link
         :href="route(link.route, link.args)"
         v-for="link in links"
