@@ -23,12 +23,12 @@ defineProps<{
       <div
         v-for="(image, index) in product.images"
         :key="index"
-        class="card-panel h-full w-full flex items-center overflow-hidden rounded-3xl"
+        class="card-panel h-full w-full flex items-center justify-center overflow-hidden rounded-3xl"
       >
         <img
           :src="image.url"
           :alt="`${product.brand} - ${product.model} - ${index}`"
-          class="w-fit h-fit min-w-fit min-h-fit aspect-auto pointer-events-none rounded-3xl"
+          class="w-auto h-auto aspect-auto pointer-events-none rounded-3xl"
         />
       </div>
 
