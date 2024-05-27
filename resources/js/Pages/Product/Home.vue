@@ -24,7 +24,7 @@ defineProps<{
 
       <PaginatedList :total="products.meta.total" :per-page="products.meta.per_page">
         <div
-          class="mx-auto max-w-6xl grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-4 justify-items-center"
+          class="mx-auto max-w-6xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-y-12 gap-y-8 xs:gap-x-4 gap-x-2 justify-items-center"
           v-if="products.data.length"
         >
           <template v-for="product in products.data">
