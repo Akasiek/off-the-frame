@@ -21,6 +21,10 @@ const handleCategory = (category: ProductCategory) => {
     params.set('category', category.slug);
   }
 
+  if (params.get('page')) {
+    params.set('page', '1');
+  }
+
   router.visit(window.location.pathname + '?' + params.toString());
 };
 </script>
