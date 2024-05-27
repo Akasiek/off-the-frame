@@ -11,6 +11,9 @@ const links = [
   {
     route: 'products.index',
     name: 'products by category',
+    param: {
+      category: 'shoes',
+    },
   },
   {
     route: 'outfits-of-the-day.index',
@@ -30,7 +33,7 @@ const links = [
 
       <div class="flex flex-col gap-y-2">
         <Link
-          :href="route(link.route)"
+          :href="route(link.route, link.param)"
           v-for="link in links"
           :key="link.route"
           class="font-semibold text-black cool-underline w-fit text-xs sm:text-sm md:text-base"

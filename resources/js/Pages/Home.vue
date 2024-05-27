@@ -27,7 +27,7 @@ import style2 from '@/Assets/style_2.webp';
         <h2 class="lg:text-2xl text-xl text-center text-gray-800 p-4 uppercase font-serif tracking-wider">Outfit of the day</h2>
       </a>
 
-      <a class="block" :href="route('products.index')">
+      <a class="block" :href="route('products.index', { category: 'shoes' })">
         <div class="rounded-2xl bg-white-0 border h-[26rem] sm:h-[32rem] overflow-hidden flex">
           <div class="w-full h-full relative">
             <img :src="prod1" alt="Product 1" class="absolute top-4 right-4 w-48 h-48" />
