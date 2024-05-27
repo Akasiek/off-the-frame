@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
 import Logo from '@/Components/Logo.vue';
+import InstagramLogo from '@/Components/InstagramLogo.vue';
 
 const links = [
   {
@@ -38,5 +39,8 @@ const links = [
         </Link>
       </div>
     </div>
+    <a href="https://www.instagram.com/offtheframee/" target="_blank" class="p-2 block">
+      <InstagramLogo class="h-6 sm:h-8 md:h-10 w-fit min-w-fit" />
+    </a>
   </div>
 </template>
