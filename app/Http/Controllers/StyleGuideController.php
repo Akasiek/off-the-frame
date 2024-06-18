@@ -33,7 +33,7 @@ class StyleGuideController extends Controller
 
     public function dashboard(): Response
     {
-        $styleGuides = StyleGuideResource::collection(StyleGuide::with(['outfitsOfTheDay', 'products'])->get());
+        $styleGuides = StyleGuideResource::collection(StyleGuide::with(['outfitsOfTheDay', 'products'])->orderBy('created_at', 'desc')->get());
         $outfitsOfTheDay = OutfitOfTheDay::all();
         $products = Product::all();
 
