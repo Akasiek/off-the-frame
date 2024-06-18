@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { h } from 'vue';
-import { OutfitOfTheDay, Product } from '@/Interfaces';
+import { OutfitOfTheDay, PaginatedMeta, Product } from '@/Interfaces';
 import { ColumnDef } from '@tanstack/vue-table';
 import { DataTable } from '@/Components/ui/table';
 import { OutfitOfTheDayCreateForm, OutfitOfTheDayUpdateForm } from '@/Components/OutfitOfTheDay/Form';
 import { OutfitOfTheDayDeleteDialog } from '@/Components/OutfitOfTheDay/Delete';
 
 const { outfitsOfTheDay, products } = defineProps<{
-  outfitsOfTheDay: { data: OutfitOfTheDay[] };
+  outfitsOfTheDay: { data: OutfitOfTheDay[]; meta: PaginatedMeta };
   products: Product[];
 }>();
 
@@ -64,7 +64,7 @@ const columns: ColumnDef<OutfitOfTheDay>[] = [
 </script>
 
 <template>
-  <DataTable :data="outfitsOfTheDay.data" :columns="columns" class="z-10">
+  <DataTable :data="outfitsOfTheDay.data" :columns="columns" :meta="outfitsOfTheDay.meta" class="z-10">
     <template #header>
       <div class="flex flex-wrap justify-between mb-4">
         <OutfitOfTheDayCreateForm :products="products" />

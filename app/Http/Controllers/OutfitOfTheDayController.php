@@ -32,7 +32,7 @@ class OutfitOfTheDayController extends Controller
 
     public function dashboard(): Response
     {
-        $OftD = OutfitOfTheDayResource::collection(OutfitOfTheDay::with(['products'])->orderBy('created_at', 'desc')->get());
+        $OftD = OutfitOfTheDayResource::collection(OutfitOfTheDay::with(['products'])->orderBy('created_at', 'desc')->paginate(24));
         $products = Product::all();
 
         return Inertia::render('OutfitOfTheDay/Dashboard', [

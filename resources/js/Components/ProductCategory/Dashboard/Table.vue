@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { h } from 'vue';
-import { ProductCategory } from '@/Interfaces';
+import { PaginatedMeta, ProductCategory } from '@/Interfaces';
 import { ColumnDef } from '@tanstack/vue-table';
 import { DataTable } from '@/Components/ui/table';
 import DeleteDialog from '@/Components/DeleteDialog.vue';
 import { ProductCategoryCreateForm, ProductCategoryUpdateForm } from '@/Components/ProductCategory/Form';
 
 const { categories } = defineProps<{
-  categories: { data: ProductCategory[] };
+  categories: { data: ProductCategory[]; meta: PaginatedMeta };
 }>();
 
 const columns: ColumnDef<ProductCategory>[] = [
@@ -35,7 +35,7 @@ const columns: ColumnDef<ProductCategory>[] = [
 </script>
 
 <template>
-  <DataTable :data="categories.data" :columns="columns" class="z-10">
+  <DataTable :data="categories.data" :columns="columns" :meta="categories.meta" class="z-10">
     <template #header>
       <div class="flex flex-wrap justify-between mb-4">
         <ProductCategoryCreateForm />

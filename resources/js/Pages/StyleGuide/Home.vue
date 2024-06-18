@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeLinks, HomeMeta, StyleGuide } from '@/Interfaces';
+import { HomeLinks, PaginatedMeta, StyleGuide } from '@/Interfaces';
 import Card from '@/Components/StyleGuide/Card.vue';
 import PaginatedList from '@/Components/PaginatedList.vue';
 import PrimaryLayout from '@/Layouts/PrimaryLayout.vue';
@@ -8,7 +8,7 @@ defineProps<{
   styleGuides: {
     data: StyleGuide[];
     links: HomeLinks;
-    meta: HomeMeta;
+    meta: PaginatedMeta;
   };
 }>();
 </script>

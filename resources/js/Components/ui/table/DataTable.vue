@@ -10,13 +10,15 @@ import {
   useVueTable,
 } from '@tanstack/vue-table';
 import { valueUpdater } from '@/lib/utils';
-import { Button } from '@/Components/ui/button';
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/Components/ui/table/index';
+import Pagination from '@/Components/Pagination.vue';
+import { PaginatedMeta } from '@/Interfaces';
 
 const props = defineProps<{
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  meta: PaginatedMeta;
 }>();
 
 const sorting = ref<SortingState>([]);
@@ -35,11 +37,7 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel(),
   onSortingChange: (updaterOrValue) => valueUpdater(updaterOrValue, sorting),
   onColumnFiltersChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnFilters),
-  initialState: {
-    pagination: {
-      pageSize: 20,
-    },
-  },
+  manualPagination: true,
   state: {
     get sorting() {
       return sorting.value;
@@ -81,9 +79,8 @@ const table = useVueTable({
       </Table>
     </div>
 
-    <div class="flex items-center justify-end py-4 space-x-2">
-      <Button variant="outline" size="sm" :disabled="!table.getCanPreviousPage()" @click="table.previousPage()"> Previous </Button>
-      <Button variant="outline" size="sm" :disabled="!table.getCanNextPage()" @click="table.nextPage()"> Next </Button>
+    <div class="flex items-center justify-center py-6 space-x-2">
+      <Pagination :total="meta.total" :per-page="meta.per_page" />
     </div>
   </div>
 </template>

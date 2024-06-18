@@ -13,17 +13,9 @@ use function redirect;
 
 class ProductCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     public function dashboard(): Response
     {
-        $categories = ProductCategoryResource::collection(ProductCategory::all());
+        $categories = ProductCategoryResource::collection(ProductCategory::paginate(24));
 
         return Inertia::render('ProductCategory/Dashboard', [
             'categories' => $categories,

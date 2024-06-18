@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeLinks, HomeMeta, OutfitOfTheDay } from '@/Interfaces';
+import { HomeLinks, OutfitOfTheDay, PaginatedMeta } from '@/Interfaces';
 import PrimaryLayout from '@/Layouts/PrimaryLayout.vue';
 import PaginatedList from '@/Components/PaginatedList.vue';
 import Card from '@/Components/OutfitOfTheDay/Card.vue';
@@ -8,7 +8,7 @@ defineProps<{
   outfitsOfTheDay: {
     data: OutfitOfTheDay[];
     links: HomeLinks;
-    meta: HomeMeta;
+    meta: PaginatedMeta;
   };
 }>();
 </script>

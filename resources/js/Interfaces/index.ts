@@ -3,4 +3,4 @@ export type { ProductCategory } from './ProductCategory';
 export type { OutfitOfTheDay } from './OutfitOfTheDay';
 export type { StyleGuide } from './StyleGuide';
 
-export type { HomeLinks, HomeMeta } from './HomeProps';
+export type { HomeLinks, PaginatedMeta } from './HomeProps';

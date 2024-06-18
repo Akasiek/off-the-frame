@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { ProductCategory } from '@/Interfaces';
+import { PaginatedMeta, ProductCategory } from '@/Interfaces';
 import { ProductCategoryTable } from '@/Components/ProductCategory/Dashboard';
 
 defineProps<{
-  categories: { data: ProductCategory[] };
+  categories: { data: ProductCategory[]; meta: PaginatedMeta };
 }>();
 </script>
 

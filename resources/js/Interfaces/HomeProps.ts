@@ -5,7 +5,7 @@ export interface HomeLinks {
   prev: string | null;
 }
 
-export interface HomeMeta {
+export interface PaginatedMeta {
   current_page: number;
   from: number;
   last_page: number;

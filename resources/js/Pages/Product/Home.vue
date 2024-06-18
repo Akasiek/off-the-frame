@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PrimaryLayout from '@/Layouts/PrimaryLayout.vue';
 import PaginatedList from '@/Components/PaginatedList.vue';
-import { HomeLinks, HomeMeta, Product, ProductCategory } from '@/Interfaces';
+import { HomeLinks, PaginatedMeta, Product, ProductCategory } from '@/Interfaces';
 import Card from '@/Components/Product/View/Card.vue';
 import CategoryButtons from '@/Components/Product/Home/CategoryButtons.vue';
 
@@ -9,7 +9,7 @@ defineProps<{
   products: {
     data: Product[];
     links: HomeLinks;
-    meta: HomeMeta;
+    meta: PaginatedMeta;
   };
   categories: ProductCategory[];
 }>();

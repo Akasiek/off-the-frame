@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { h } from 'vue';
-import { OutfitOfTheDay, Product, StyleGuide } from '@/Interfaces';
+import { OutfitOfTheDay, PaginatedMeta, Product, StyleGuide } from '@/Interfaces';
 import { ColumnDef } from '@tanstack/vue-table';
 import { DataTable } from '@/Components/ui/table';
 import { StyleGuideCreateForm, StyleGuideUpdateForm } from '@/Components/StyleGuide/Form';
 import { StyleGuideDeleteDialog } from '@/Components/StyleGuide/Delete';
 
 const { styleGuides, outfitsOfTheDay, products } = defineProps<{
-  styleGuides: { data: StyleGuide[] };
+  styleGuides: { data: StyleGuide[]; meta: PaginatedMeta };
   outfitsOfTheDay: OutfitOfTheDay[];
   products: Product[];
 }>();
-
-console.log(styleGuides);
 
 const columns: ColumnDef<StyleGuide>[] = [
   {
@@ -80,7 +78,7 @@ const columns: ColumnDef<StyleGuide>[] = [
 </script>
 
 <template>
-  <DataTable :data="styleGuides.data" :columns="columns" class="z-10">
+  <DataTable :data="styleGuides.data" :columns="columns" :meta="styleGuides.meta" class="z-10">
     <template #header>
       <div class="flex flex-wrap justify-between mb-4">
         <StyleGuideCreateForm :products="products" :outfitsOfTheDay="outfitsOfTheDay" />

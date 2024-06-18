@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { OutfitOfTheDay, Product } from '@/Interfaces';
+import { OutfitOfTheDay, PaginatedMeta, Product } from '@/Interfaces';
 import { OutfitOfTheDayTable } from '@/Components/OutfitOfTheDay/Dashboard';
 
 defineProps<{
-  outfitsOfTheDay: { data: OutfitOfTheDay[] };
+  outfitsOfTheDay: { data: OutfitOfTheDay[]; meta: PaginatedMeta };
   products: Product[];
 }>();
 </script>

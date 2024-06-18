@@ -42,7 +42,7 @@ class ProductController extends Controller
 
     public function dashboard(): Response
     {
-        $products = ProductResource::collection(Product::with(['category', 'links', 'images'])->orderBy('created_at', 'desc')->get());
+        $products = ProductResource::collection(Product::with(['category', 'links', 'images'])->orderBy('created_at', 'desc')->paginate(24));
         $categories = ProductCategory::all();
 
         return Inertia::render('Product/Dashboard', [
