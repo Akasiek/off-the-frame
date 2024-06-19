@@ -16,7 +16,6 @@ class ProductCategorySeeder extends Seeder
             'Shoes',
             'T-Shirts & Tops',
             'Coats & Jackets',
-            'Shirts',
             'Knitwear',
             'Hoodies',
             'Trousers',
