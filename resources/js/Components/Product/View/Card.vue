@@ -17,7 +17,7 @@ const smallestPrice = computed(() =>
   <a
     :key="product.id"
     :href="route('products.show', product.id)"
-    class="max-w-64 w-full h-full bg-white-0 sm:py-5 py-3 sm:px-5 px-3.5 sm:rounded-2xl rounded-xl border flex flex-col justify-between gap-y-4"
+    class="max-w-72 w-full h-full bg-white-0 sm:py-5 py-3 sm:px-5 px-3.5 sm:rounded-2xl rounded-xl border flex flex-col justify-between gap-y-4"
   >
     <div class="h-full flex items-center justify-center">
       <img :src="product.images[0].url" :alt="product.model" class="w-auto h-auto rounded-xl" />
