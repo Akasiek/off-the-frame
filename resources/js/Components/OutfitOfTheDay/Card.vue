@@ -10,9 +10,9 @@ defineProps<{
   <a
     :key="outfitOfTheDay.id"
     :href="route('outfits-of-the-day.show', outfitOfTheDay.id)"
-    class="flex flex-col rounded-2xl overflow-hidden max-w-64 w-full bg-white-0 border"
+    class="flex flex-col rounded-2xl overflow-hidden max-w-80 w-full bg-white-0 border"
   >
-    <div class="w-full md:h-96 h-80 overflow-hidden rounded-2xl">
+    <div class="w-full md:h-[32rem] sm:h-96 xs:h-80 h-72 overflow-hidden rounded-2xl">
       <img :src="outfitOfTheDay.image" :alt="outfitOfTheDay.image_source_url" class="w-full h-full object-center object-cover" />
     </div>
 
