@@ -14,6 +14,7 @@ class ProductCategoryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
+            'order_position' => ['required', 'integer', 'min:0'],
         ];
     }
 

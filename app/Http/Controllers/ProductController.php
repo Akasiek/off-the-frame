@@ -27,7 +27,7 @@ class ProductController extends Controller
 
         return Inertia::render('Product/Home', [
             'products' => $resource,
-            'categories' => ProductCategory::all(),
+            'categories' => ProductCategory::orderBy('order_position')->get(),
         ]);
     }
 

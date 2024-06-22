@@ -15,8 +15,8 @@ class ProductCategoryController extends Controller
 {
     public function dashboard(): Response
     {
-        $categories = ProductCategoryResource::collection(ProductCategory::paginate(24));
-
+        $categories = ProductCategoryResource::collection(ProductCategory::orderBy('order_position')->paginate(24));
+        
         return Inertia::render('ProductCategory/Dashboard', [
             'categories' => $categories,
         ]);

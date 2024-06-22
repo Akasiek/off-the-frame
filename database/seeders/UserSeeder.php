@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         // Create admin user
         if (!env('ADMIN_EMAIL') || !env('ADMIN_PASSWORD')) {
-            throw new Exception('Please set ADMIN_EMAIL and ADMIN_PASSWORD in your .env file');
+            return;
         }
 
         User::updateOrCreate(['name' => 'Admin'], [

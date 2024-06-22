@@ -4,6 +4,7 @@ import { toast } from '@/Components/ui/toast';
 import { useForm } from '@inertiajs/vue3';
 import { TextField } from '@/Components/Form';
 import { Button } from '@/Components/ui/button';
+import NumberField from '@/Components/Form/NumberField.vue';
 
 const emit = defineEmits(['success']);
 const { category, isEdit } = defineProps<{
@@ -13,6 +14,7 @@ const { category, isEdit } = defineProps<{
 
 const form = useForm({
   name: category?.name ?? '',
+  order_position: category?.order_position ?? 0,
 });
 
 const submit = () => {
@@ -58,6 +60,16 @@ const handleError = () => {
 <template>
   <form class="space-y-6" @submit.prevent="submit">
     <TextField v-model="form.name" field-name="name" label="Nazwa" :field-error="form.errors.name" placeholder="T-shirts..." autofocus />
+
+    <NumberField
+      v-model="form.order_position"
+      field-name="order_position"
+      label="Pozycja"
+      :field-error="form.errors.order_position"
+      placeholder="1..."
+      type="number"
+      :min="0"
+    />
 
     <Button type="submit">{{ isEdit ? 'Zaktualizuj' : 'Dodaj' }}</Button>
   </form>

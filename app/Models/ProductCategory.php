@@ -13,7 +13,8 @@ class ProductCategory extends Model
     use HasFactory, HasSlug;
 
     protected $fillable = [
-        'name'
+        'name',
+        'order_position',
     ];
 
     public function getSlugOptions() : SlugOptions

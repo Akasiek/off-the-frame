@@ -17,15 +17,19 @@ class ProductCategorySeeder extends Seeder
             'T-Shirts & Tops',
             'Coats & Jackets',
             'Knitwear',
-            'Hoodies',
+            'Hoodies & Sweatshirts',
             'Trousers',
             'Dresses',
-            'Accessories'
+            'Skirts',
+            'Accessories',
+            'Jewellery',
         ];
 
-        foreach ($categories as $category) {
+        foreach ($categories as $order => $category) {
             ProductCategory::updateOrCreate([
                 'name' => $category
+            ], [
+                'order_position' => $order + 1,
             ]);
         }
     }

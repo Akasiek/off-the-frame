@@ -17,6 +17,11 @@ const columns: ColumnDef<ProductCategory>[] = [
     cell: (props) => props.row.original.name,
   },
   {
+    accessorKey: 'order_position',
+    header: 'Pozycja',
+    cell: (props) => props.row.original.order_position,
+  },
+  {
     id: 'actions',
     header: 'Akcje',
     cell: (props) =>
