@@ -2,6 +2,7 @@
 import { Link } from '@inertiajs/vue3';
 import Logo from '@/Components/Logo.vue';
 import InstagramLogo from '@/Components/InstagramLogo.vue';
+import TikTokLogo from '@/Components/TikTokLogo.vue';
 
 const links = [
   {
@@ -44,7 +45,10 @@ const links = [
         </Link>
       </div>
     </div>
-    <div class="p-2">
+    <div class="p-2 flex md:gap-8 xs:gap-4 gap-2">
+      <a href="https://www.tiktok.com/@offtheframeee">
+        <TikTokLogo class="h-6 sm:h-8 md:h-10 w-fit min-w-fit" />
+      </a>
       <a href="https://www.instagram.com/offtheframee/" target="_blank">
         <InstagramLogo class="h-6 sm:h-8 md:h-10 w-fit min-w-fit" />
       </a>
