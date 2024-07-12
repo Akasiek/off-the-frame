@@ -33,7 +33,7 @@ const handleCategory = (category: ProductCategory) => {
   <div class="flex flex-wrap justify-center lg:gap-4 gap-2">
     <template v-for="category in categories">
       <button
-        class="px-5 py-2 border rounded-full shadow-[0_2px_12px_#00000010] transition-all active:scale-95 lg:text-base md:text-sm text-xs font-semibold"
+        class="lg:px-5 md:px-4 px-3.5 lg:py-2 md:py-1.5 py-1 border rounded-full shadow-[0_2px_12px_#00000010] transition-all active:scale-95 lg:text-base md:text-sm text-xs font-semibold"
         :class="{
           'bg-black text-white hover:bg-zinc-600 hover:text-white': category.slug === getCurrentSelectedCategory(),
           'bg-white-0 text-black hover:bg-zinc-100 hover:text-black': category.slug !== getCurrentSelectedCategory(),
