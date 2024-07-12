@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -15,9 +16,10 @@ class ProductCategory extends Model
     protected $fillable = [
         'name',
         'order_position',
+        'id_parent',
     ];
 
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
@@ -27,5 +29,15 @@ class ProductCategory extends Model
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(ProductCategory::class, 'id_parent');
+    }
+
+    public function children(): HasMany
+    {
+        return $this->hasMany(ProductCategory::class, 'id_parent');
     }
 }
