@@ -11,7 +11,10 @@ import style2 from '@/Assets/style_2.webp';
 </script>
 
 <template>
-  <PrimaryLayout title="Welcome">
+  <PrimaryLayout
+    title="Off The Frame - Discover the Latest in Fashion Trends & Styles"
+    description="Discover the latest trends in fashion with our comprehensive website. Explore style guides, outfit inspirations, and expert tips to elevate your wardrobe."
+  >
     <div class="max-w-4xl mx-auto my-16 grid sm:grid-cols-2 gap-8 px-8">
       <a class="block sm:col-span-2" :href="route('outfits-of-the-day.index')">
         <div class="rounded-2xl bg-white-0 border h-[26rem] overflow-hidden flex">

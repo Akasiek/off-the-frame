@@ -16,7 +16,10 @@ defineProps<{
 </script>
 
 <template>
-  <PrimaryLayout title="Products">
+  <PrimaryLayout
+    title="Must-Have Fashion Pieces for This Season"
+    description="Stay fashionable with our wide selection of clothes and accessories. Shop now for the perfect additions to your closet."
+  >
     <div class="lg:my-16 my-12 lg:px-8 sm:px-4 px-2">
       <div class="mx-auto max-w-6xl my-12">
         <CategoryButtons :categories="categories" />

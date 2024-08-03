@@ -14,7 +14,10 @@ defineProps<{
 </script>
 
 <template>
-  <PrimaryLayout title="Style Guides">
+  <PrimaryLayout
+    title="Stylish Clothes Guide: Elevate Your Wardrobe Effortlessly"
+    description="Master the art of style with our ultimate style guide. Stay ahead of the fashion curve and express your unique sense of style."
+  >
     <div class="lg:my-16 my-12 lg:px-8 sm:px-4 px-2">
       <PaginatedList :total="styleGuides.meta.total" :per-page="styleGuides.meta.per_page">
         <div class="mx-auto max-w-6xl grid grid-cols-2 lg:gap-y-12 md:gap-y-8 gap-y-4 xs:gap-x-4 gap-x-2 justify-items-center">

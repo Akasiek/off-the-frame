@@ -14,8 +14,11 @@ defineProps<{
 </script>
 
 <template>
-  <PrimaryLayout title="Outfits of the Day"
-    ><div class="lg:my-16 my-12 lg:px-8 sm:px-4 px-2">
+  <PrimaryLayout
+    title="OOTD Inspiration: Elevate Your Style Daily"
+    description="Get your daily dose of fashion inspiration with our Outfit of the Day website. Elevate your style effortlessly!"
+  >
+    <div class="lg:my-16 my-12 lg:px-8 sm:px-4 px-2">
       <PaginatedList :total="outfitsOfTheDay.meta.total" :per-page="outfitsOfTheDay.meta.per_page">
         <div class="mx-auto max-w-6xl grid lg:grid-cols-3 grid-cols-2 lg:gap-y-12 gap-y-6 xs:gap-x-6 gap-x-2 justify-items-center">
           <template v-for="outfit in outfitsOfTheDay.data">

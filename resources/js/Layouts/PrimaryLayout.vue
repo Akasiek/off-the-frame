@@ -5,11 +5,12 @@ import WrapperLayout from '@/Layouts/WrapperLayout.vue';
 
 defineProps<{
   title: string;
+  description?: string;
 }>();
 </script>
 
 <template>
-  <WrapperLayout :title="title">
+  <WrapperLayout :title="title" :description="description">
     <div>
       <Nav />
 
