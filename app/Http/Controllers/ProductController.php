@@ -7,6 +7,7 @@ use App\Http\Resources\ProductResource;
 use App\Http\Services\ProductService;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use Illuminate\Database\Eloquent\Builder;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -18,9 +19,7 @@ class ProductController extends Controller
         $query = Product::with(['category', 'links', 'images'])->orderBy('created_at', 'desc');
 
         if ($categoryParam) {
-            $query->whereHas('category', function ($query) use ($categoryParam) {
-                $query->where('slug', $categoryParam);
-            });
+            $this->applyCategoryFilter($query, $categoryParam);
         }
 
         $resource = ProductResource::collection($query->paginate(24));
@@ -29,6 +28,18 @@ class ProductController extends Controller
             'products' => $resource,
             'categories' => ProductCategory::orderBy('order_position')->get(),
         ]);
+    }
+
+    private function applyCategoryFilter(Builder $query, string $categoryParam): void
+    {
+        $query->whereHas('category', function ($query) use ($categoryParam) {
+            $query->where('slug', $categoryParam);
+
+            // If category is a parent category, show also products from its children
+            $query->orWhereHas('parent', function ($query) use ($categoryParam) {
+                $query->where('slug', $categoryParam);
+            });
+        });
     }
 
     public function show(Product $product)
