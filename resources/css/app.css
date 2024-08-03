@@ -1,3 +1,5 @@
+@import url('@fontsource-variable/lora');
+@import url('@fontsource-variable/montserrat');
 @import url('@egjs/vue3-flicking/dist/flicking.css');
 
 @tailwind base;
