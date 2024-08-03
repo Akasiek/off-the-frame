@@ -16,7 +16,7 @@ class ProductCategory extends Model
     protected $fillable = [
         'name',
         'order_position',
-        'id_parent',
+        'parent_id',
     ];
 
     public function getSlugOptions(): SlugOptions
@@ -33,11 +33,11 @@ class ProductCategory extends Model
 
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(ProductCategory::class, 'id_parent');
+        return $this->belongsTo(ProductCategory::class, 'parent_id');
     }
 
     public function children(): HasMany
     {
-        return $this->hasMany(ProductCategory::class, 'id_parent');
+        return $this->hasMany(ProductCategory::class, 'parent_id');
     }
 }

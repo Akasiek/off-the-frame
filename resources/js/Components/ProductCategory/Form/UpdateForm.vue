@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { PencilIcon } from 'lucide-vue-next';
-import { ProductCategory } from '@/Interfaces';
+import { ParentProductCategory, ProductCategory } from '@/Interfaces';
 import BaseForm from '@/Components/ProductCategory/Form/BaseForm.vue';
 import ModalContainer from '@/Components/ModalContainer.vue';
 
 defineProps<{
+  parentCategories: ParentProductCategory[];
   category: ProductCategory;
 }>();
 </script>
@@ -16,7 +17,7 @@ defineProps<{
     </template>
 
     <template v-slot="{ handleClose }">
-      <BaseForm :category="category" @success="handleClose" :is-edit="true" />
+      <BaseForm :category="category" :parentCategories="parentCategories" @success="handleClose" :is-edit="true" />
     </template>
   </ModalContainer>
 </template>

@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ProductCategory } from '@/Interfaces';
+import { ParentProductCategory, ProductCategory } from '@/Interfaces';
 import { toast } from '@/Components/ui/toast';
 import { useForm } from '@inertiajs/vue3';
-import { TextField } from '@/Components/Form';
+import { Select, TextField } from '@/Components/Form';
 import { Button } from '@/Components/ui/button';
 import NumberField from '@/Components/Form/NumberField.vue';
 
 const emit = defineEmits(['success']);
-const { category, isEdit } = defineProps<{
+const { parentCategories, category, isEdit } = defineProps<{
+  parentCategories: ParentProductCategory[];
   category?: ProductCategory;
   isEdit?: boolean;
 }>();
@@ -15,6 +16,7 @@ const { category, isEdit } = defineProps<{
 const form = useForm({
   name: category?.name ?? '',
   order_position: category?.order_position ?? 0,
+  parent_id: category?.parent_id?.toString() || '',
 });
 
 const submit = () => {
@@ -59,7 +61,15 @@ const handleError = () => {
 
 <template>
   <form class="space-y-6" @submit.prevent="submit">
-    <TextField v-model="form.name" field-name="name" label="Nazwa" :field-error="form.errors.name" placeholder="T-shirts..." autofocus />
+    <TextField
+      v-model="form.name"
+      field-name="name"
+      label="Nazwa"
+      :field-error="form.errors.name"
+      placeholder="T-shirts..."
+      autofocus
+      is-required
+    />
 
     <NumberField
       v-model="form.order_position"
@@ -69,6 +79,21 @@ const handleError = () => {
       placeholder="1..."
       type="number"
       :min="0"
+      is-required
+    />
+
+    <Select
+      v-model="form.parent_id"
+      field-name="parent_id"
+      :field-error="form.errors.parent_id"
+      :options="
+        parentCategories.map((obj) => ({
+          id: obj.id,
+          text: obj.name,
+        }))
+      "
+      label="Kategoria nadrzędna"
+      placeholder="Wybierz kategorię nadrzędną..."
     />
 
     <Button type="submit">{{ isEdit ? 'Zaktualizuj' : 'Dodaj' }}</Button>

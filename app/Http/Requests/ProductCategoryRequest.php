@@ -15,7 +15,7 @@ class ProductCategoryRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'order_position' => ['required', 'integer', 'min:0'],
-            'id_parent' => ['sometimes', 'nullable', 'integer', 'min:0', 'exists:product_categories,id'],
+            'parent_id' => ['sometimes', 'nullable', 'integer', 'min:0', 'exists:product_categories,id'],
         ];
     }
 

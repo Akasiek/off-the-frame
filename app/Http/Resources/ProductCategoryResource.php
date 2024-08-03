@@ -16,8 +16,10 @@ class ProductCategoryResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'order_position' => $this->order_position,
-            'id_parent' => $this->id_parent,
+            'parent_id' => $this->parent_id,
             'slug' => $this->slug,
+
+            'parent' => new ProductCategoryResource($this->whenLoaded('parent')),
         ];
     }
 }

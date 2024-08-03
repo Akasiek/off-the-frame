@@ -3,6 +3,11 @@ import ModalContainer from '@/Components/ModalContainer.vue';
 import BaseForm from '@/Components/ProductCategory/Form/BaseForm.vue';
 import { Button } from '@/Components/ui/button';
 import { PlusIcon } from 'lucide-vue-next';
+import { ParentProductCategory } from '@/Interfaces';
+
+defineProps<{
+  parentCategories: ParentProductCategory[];
+}>();
 </script>
 
 <template>
@@ -15,7 +20,7 @@ import { PlusIcon } from 'lucide-vue-next';
     </template>
 
     <template v-slot="{ handleClose }">
-      <BaseForm @success="handleClose" />
+      <BaseForm @success="handleClose" :parentCategories="parentCategories" />
     </template>
   </ModalContainer>
 </template>
